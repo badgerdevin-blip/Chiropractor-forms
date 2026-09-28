@@ -13,7 +13,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2F5D50 0%, #1a3a30 100%);
             min-height: 100vh;
             padding: 20px;
         }
@@ -24,7 +24,7 @@
         }
 
         .header {
-            background: white;
+            background: #FAF6EE;
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -33,16 +33,16 @@
         }
 
         .header h1 {
-            color: #2d3748;
+            color: #2F5D50;
             margin-bottom: 10px;
         }
 
         .header p {
-            color: #718096;
+            color: #5a7068;
         }
 
         .card {
-            background: white;
+            background: #FAF6EE;
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 30px;
@@ -68,13 +68,13 @@
         }
 
         .question h2 {
-            color: #2d3748;
+            color: #2F5D50;
             font-size: 20px;
             margin-bottom: 15px;
         }
 
         .question p {
-            color: #718096;
+            color: #5a7068;
             margin-bottom: 20px;
             font-size: 14px;
         }
@@ -85,27 +85,27 @@
         }
 
         .option-btn {
-            background: #f7fafc;
-            border: 2px solid #e2e8f0;
+            background: white;
+            border: 2px solid #d4cfc4;
             padding: 16px 20px;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s;
             text-align: left;
             font-size: 16px;
-            color: #2d3748;
+            color: #2F5D50;
         }
 
         .option-btn:hover {
-            border-color: #667eea;
-            background: #edf2f7;
+            border-color: #2F5D50;
+            background: #f5f0e8;
             transform: translateY(-2px);
         }
 
         .option-btn.selected {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-color: #667eea;
-            color: white;
+            background: #2F5D50;
+            border-color: #2F5D50;
+            color: #FAF6EE;
         }
 
         .input-field {
@@ -123,7 +123,7 @@
         }
 
         .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #D97652;
             color: white;
             border: none;
             padding: 14px 28px;
@@ -136,17 +136,18 @@
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 6px 12px rgba(217, 118, 82, 0.3);
+            background: #c26545;
         }
 
         .btn-secondary {
             background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
+            color: #2F5D50;
+            border: 2px solid #2F5D50;
         }
 
         .btn-secondary:hover {
-            background: #f7fafc;
+            background: #f5f0e8;
         }
 
         .button-group {
@@ -165,25 +166,25 @@
 
         .summary-item {
             padding: 16px;
-            background: #f7fafc;
-            border-left: 4px solid #667eea;
+            background: white;
+            border-left: 4px solid #2F5D50;
             margin-bottom: 12px;
             border-radius: 4px;
         }
 
         .summary-item strong {
-            color: #2d3748;
+            color: #2F5D50;
             display: block;
             margin-bottom: 4px;
         }
 
         .summary-item span {
-            color: #718096;
+            color: #5a7068;
         }
 
         .collapsible-section {
-            background: #f7fafc;
-            border: 2px solid #e2e8f0;
+            background: white;
+            border: 2px solid #d4cfc4;
             border-radius: 8px;
             padding: 16px;
             margin-top: 20px;
@@ -195,12 +196,12 @@
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
-            color: #2d3748;
+            color: #2F5D50;
             user-select: none;
         }
 
         .collapsible-header:hover {
-            color: #667eea;
+            color: #D97652;
         }
 
         .collapsible-arrow {
@@ -224,15 +225,15 @@
         }
 
         .patient-name-section {
-            background: white;
-            border: 2px solid #e2e8f0;
+            background: #FAF6EE;
+            border: 2px solid #d4cfc4;
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
         }
 
         .patient-name-section h3 {
-            color: #2d3748;
+            color: #2F5D50;
             margin-bottom: 10px;
             font-size: 18px;
         }
@@ -291,15 +292,15 @@
         }
 
         .billing-codes {
-            background: #fffaf0;
-            border: 2px solid #fbd38d;
+            background: #fff8f3;
+            border: 2px solid #D97652;
             border-radius: 8px;
             padding: 20px;
             margin-top: 20px;
         }
 
         .billing-codes h3 {
-            color: #744210;
+            color: #D97652;
             margin-bottom: 12px;
         }
 
@@ -309,43 +310,44 @@
             margin-bottom: 8px;
             border-radius: 4px;
             font-family: 'Courier New', monospace;
+            color: #000000;
         }
 
         .narrative-summary {
-            background: #f0f9ff;
-            border: 2px solid #7dd3fc;
+            background: white;
+            border: 2px solid #2F5D50;
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
         }
 
         .narrative-summary h3 {
-            color: #0c4a6e;
+            color: #2F5D50;
             margin-bottom: 12px;
         }
 
         .narrative-text {
-            color: #1e293b;
+            color: #000000;
             line-height: 1.8;
             font-size: 15px;
             text-align: justify;
         }
 
         .treatment-plan {
-            background: #f0fdf4;
-            border: 2px solid #86efac;
+            background: #fff8f3;
+            border: 2px solid #D97652;
             border-radius: 8px;
             padding: 20px;
             margin-top: 20px;
         }
 
         .treatment-plan h3 {
-            color: #14532d;
+            color: #D97652;
             margin-bottom: 12px;
         }
 
         .plan-text {
-            color: #1e293b;
+            color: #000000;
             line-height: 1.8;
             font-size: 15px;
             margin-bottom: 12px;
@@ -353,12 +355,12 @@
 
         .frequency-highlight {
             background: white;
-            border-left: 4px solid #22c55e;
+            border-left: 4px solid #D97652;
             padding: 12px 16px;
             margin-top: 12px;
             border-radius: 4px;
             font-weight: 600;
-            color: #14532d;
+            color: #D97652;
         }
 
         .config-panel {
@@ -432,15 +434,14 @@
         </div>
 
         <div class="card" id="mainCard" style="display: none;">
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
-            </div>
-
             <div id="questionContainer"></div>
 
             <div class="summary" id="summaryContainer">
-                <h2>Patient Summary for Insurance Billing</h2>
-                <h3 id="summaryPatientName" style="color: #667eea; margin-bottom: 20px;"></h3>
+                <div style="margin-bottom: 20px;">
+                    <h2 style="margin: 0;">Patient Summary for Insurance Billing</h2>
+                    <h3 id="summaryPatientName" style="color: #2F5D50; margin: 5px 0;"></h3>
+                    <p id="summaryDate" style="color: #5a7068; margin: 0; font-size: 14px;"></p>
+                </div>
 
                 <div class="narrative-summary" id="narrativeSummary"></div>
 
@@ -448,7 +449,7 @@
 
                 <div class="collapsible-section">
                     <div class="collapsible-header" onclick="toggleResponses()">
-                        <span>Detailed Responses</span>
+                        <span>Form Responses</span>
                         <span class="collapsible-arrow" id="responsesArrow">▼</span>
                     </div>
                     <div class="collapsible-content" id="responsesContent">
@@ -459,12 +460,42 @@
                 <div class="billing-codes" id="billingCodes"></div>
 
                 <div class="export-actions">
-                    <button class="btn btn-secondary" onclick="restart()">Start Over</button>
+                    <div>
+                        <button class="btn btn-secondary" onclick="goBackFromSummary()">← Back</button>
+                        <button class="btn btn-secondary" onclick="restart()" style="margin-left: 10px;">New Patient</button>
+                        <button class="btn" id="treatmentDocButton" onclick="showTreatmentForm()" style="margin-left: 10px;">
+                            Complete Treatment Documentation →
+                        </button>
+                    </div>
                     <div class="dropdown-menu">
                         <button class="btn" onclick="toggleExportMenu()">Export ▼</button>
                         <div class="dropdown-content" id="exportDropdown">
                             <button class="dropdown-item" onclick="exportSummary('json')">Download as JSON</button>
                             <button class="dropdown-item" onclick="exportSummary('pdf')">Print/Save as PDF</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary" id="treatmentFormContainer" style="display: none;">
+                <h2>Treatment Documentation</h2>
+                <h3 id="treatmentPatientName" style="color: #2F5D50; margin-bottom: 5px;"></h3>
+                <p id="treatmentDate" style="color: #5a7068; margin-bottom: 20px; font-size: 14px;"></p>
+
+                <div style="background: white; border: 2px solid #2F5D50; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+                    <strong style="color: #2F5D50;">Previous Assessment Summary:</strong>
+                    <div id="carryOverInfo" style="margin-top: 10px; font-size: 14px; color: #000000;"></div>
+                </div>
+
+                <div id="treatmentQuestionContainer"></div>
+
+                <div class="export-actions" style="margin-top: 30px;">
+                    <button class="btn btn-secondary" onclick="goBackTreatment()">← Back</button>
+                    <div class="dropdown-menu">
+                        <button class="btn" onclick="toggleExportMenu()">Export ▼</button>
+                        <div class="dropdown-content" id="exportDropdown2">
+                            <button class="dropdown-item" onclick="exportTreatmentDoc('json')">Download as JSON</button>
+                            <button class="dropdown-item" onclick="exportTreatmentDoc('pdf')">Print/Save as PDF</button>
                         </div>
                     </div>
                 </div>
@@ -475,67 +506,12 @@
             <button class="btn btn-secondary" onclick="toggleHistory()" style="font-size: 11px; padding: 8px 14px;">
                 📋 Recent Form History
             </button>
-            <button class="btn btn-secondary" onclick="toggleConfig()" style="font-size: 11px; padding: 8px 14px;">
-                ⚙️ Advanced Configuration
-            </button>
         </div>
 
         <div class="config-panel" id="historyPanel" style="display: none;">
             <h3 style="font-size: 14px; margin-bottom: 15px;">Recent Form History</h3>
             <div id="historyContent" style="font-size: 12px;">
                 <p style="color: #718096;">No recent forms found.</p>
-            </div>
-        </div>
-
-        <div class="config-panel" id="configPanel" style="display: none;">
-            <div id="configEditor">
-                <h3 style="font-size: 14px;">Decision Tree Configuration (JSON)</h3>
-                <div style="background: #fffaf0; border: 1px solid #fbd38d; border-radius: 6px; padding: 12px; margin-bottom: 12px; font-size: 11px;">
-                    <strong>📝 Configuration Guide:</strong>
-                    <ul style="margin: 8px 0 0 20px; line-height: 1.6;">
-                        <li><code>title</code> & <code>subtitle</code> - Main header text</li>
-                        <li><code>patientInfo</code> - Opening page settings:
-                            <ul style="margin-left: 15px;">
-                                <li><code>label</code> - Heading text</li>
-                                <li><code>placeholder</code> - Input placeholder</li>
-                                <li><code>buttonText</code> - Button label</li>
-                            </ul>
-                        </li>
-                        <li><code>nodes</code> - Question array (all optional):
-                            <ul style="margin-left: 15px;">
-                                <li><code>single_choice</code> - Requires: options with value/label/next</li>
-                                <li><code>multiple_choice</code> - Requires: options, next</li>
-                                <li><code>text</code> - Requires: placeholder (optional), next</li>
-                                <li><code>date_text</code> - Requires: dateLabel, textLabel, next</li>
-                                <li><code>dropdown</code> - Requires: options (set <code>hasTextField: true</code> for "Other")</li>
-                            </ul>
-                        </li>
-                        <li><code>billingCodes</code> - CPT codes for insurance</li>
-                    </ul>
-                    <p style="margin-top: 8px; color: #744210;"><strong>Note:</strong> All questions are now optional. Users can click "Continue" to skip any question.</p>
-                </div>
-                <textarea id="configJson" style="font-size: 11px; min-height: 200px;"></textarea>
-                <div class="button-group">
-                    <button class="btn" onclick="loadConfig()" style="font-size: 12px; padding: 8px 16px;">Apply Configuration</button>
-                    <button class="btn btn-secondary" onclick="resetConfig()" style="font-size: 12px; padding: 8px 16px;">Reset to Default</button>
-                    <button class="btn btn-secondary" onclick="exportConfig()" style="font-size: 12px; padding: 8px 16px;">Export Config</button>
-                    <button class="btn btn-secondary" onclick="showShareInstructions()" style="font-size: 12px; padding: 8px 16px;">Share Instructions</button>
-                </div>
-                <div id="shareInstructions" class="hidden" style="margin-top: 15px; padding: 12px; background: #1a202c; border-radius: 8px; color: #e2e8f0; font-size: 12px;">
-                    <h4 style="margin-bottom: 8px; font-size: 13px;">How to Share This Form:</h4>
-                    <ol style="margin-left: 20px; line-height: 1.6;">
-                        <li><strong>Email/File Transfer:</strong> Simply send this HTML file to another computer. It's a single, self-contained file that works offline.</li>
-                        <li><strong>USB/Cloud:</strong> Copy this file to a USB drive, Dropbox, Google Drive, or any cloud storage.</li>
-                        <li><strong>Web Hosting (Online Access):</strong>
-                            <ul style="margin-left: 20px; margin-top: 6px;">
-                                <li>Free: Upload to <a href="https://pages.github.com/" target="_blank" style="color: #7dd3fc;">GitHub Pages</a>, <a href="https://www.netlify.com/products/drop/" target="_blank" style="color: #7dd3fc;">Netlify Drop</a>, or <a href="https://surge.sh/" target="_blank" style="color: #7dd3fc;">Surge.sh</a></li>
-                                <li>Professional: Host on your office website or cloud provider</li>
-                            </ul>
-                        </li>
-                        <li><strong>Customization:</strong> Edit the JSON configuration above to customize questions, or make a copy of this file for different office locations.</li>
-                    </ol>
-                    <p style="margin-top: 10px;"><strong>Note:</strong> This is a single HTML file with everything built-in. No internet connection or server required to use it!</p>
-                </div>
             </div>
         </div>
     </div>
@@ -647,6 +623,40 @@
                     next: "pain_location"
                 },
                 {
+                    id: "aggravating_factors",
+                    type: "multiple_choice",
+                    question: "Aggravating Factors",
+                    description: "What makes the pain worse? (Select all that apply)",
+                    options: [
+                        { value: "sitting", label: "Sitting" },
+                        { value: "standing", label: "Standing" },
+                        { value: "bending", label: "Bending/Flexion" },
+                        { value: "twisting", label: "Twisting/Rotation" },
+                        { value: "lifting", label: "Lifting" },
+                        { value: "walking", label: "Walking" },
+                        { value: "lying_down", label: "Lying Down" },
+                        { value: "morning", label: "Morning/Upon Waking" }
+                    ],
+                    next: "relieving_factors"
+                },
+                {
+                    id: "relieving_factors",
+                    type: "multiple_choice",
+                    question: "Relieving Factors",
+                    description: "What makes the pain better? (Select all that apply)",
+                    options: [
+                        { value: "rest", label: "Rest" },
+                        { value: "ice", label: "Ice" },
+                        { value: "heat", label: "Heat" },
+                        { value: "movement", label: "Movement/Exercise" },
+                        { value: "stretching", label: "Stretching" },
+                        { value: "medication", label: "Medication" },
+                        { value: "massage", label: "Massage" },
+                        { value: "position_change", label: "Changing Position" }
+                    ],
+                    next: "insurance_info"
+                },
+                {
                     id: "insurance_info",
                     type: "dropdown",
                     question: "Insurance Carrier",
@@ -662,9 +672,144 @@
                         { value: "medicare", label: "Medicare" },
                         { value: "medicaid", label: "Medicaid" },
                         { value: "tricare", label: "TRICARE" },
-                        { value: "other", label: "Other (Please specify)", hasTextField: true }
+                        { value: "other", label: "Other (Please specify)", hasTextField: true },
+                        { value: "na", label: "N/A - Cash Pay" }
                     ],
                     next: "summary"
+                }
+            ],
+            treatmentNodes: [
+                {
+                    id: "rom_assessment",
+                    type: "single_choice",
+                    question: "Range of Motion Assessment",
+                    description: "Overall range of motion in affected areas",
+                    options: [
+                        { value: "normal", label: "Normal" },
+                        { value: "reduced", label: "Reduced" },
+                        { value: "severely_limited", label: "Severely Limited" }
+                    ],
+                    next: "subluxation"
+                },
+                {
+                    id: "subluxation",
+                    type: "text",
+                    question: "Subluxation/Segmental Dysfunction",
+                    description: "Document specific findings of subluxation or segmental dysfunction",
+                    placeholder: "e.g., Restricted motion at C5-C6 with joint fixation",
+                    next: "spinal_levels"
+                },
+                {
+                    id: "spinal_levels",
+                    type: "multiple_choice",
+                    question: "Specific Spinal Levels Affected",
+                    description: "Select all spinal levels showing dysfunction (required for Medicare)",
+                    options: [
+                        { value: "c1_c2", label: "C1-C2 (Upper Cervical)" },
+                        { value: "c3_c5", label: "C3-C5 (Mid Cervical)" },
+                        { value: "c6_c7", label: "C6-C7 (Lower Cervical)" },
+                        { value: "t1_t6", label: "T1-T6 (Upper Thoracic)" },
+                        { value: "t7_t12", label: "T7-T12 (Lower Thoracic)" },
+                        { value: "l1_l3", label: "L1-L3 (Upper Lumbar)" },
+                        { value: "l4_l5", label: "L4-L5 (Lower Lumbar)" },
+                        { value: "sacrum", label: "Sacrum" },
+                        { value: "pelvis", label: "Pelvis/SI Joint" }
+                    ],
+                    next: "palpation_findings"
+                },
+                {
+                    id: "palpation_findings",
+                    type: "text",
+                    question: "Palpation Findings",
+                    description: "Document tenderness, muscle spasm, or other palpatory findings",
+                    placeholder: "e.g., Moderate paraspinal muscle spasm at L4-L5, tenderness to palpation",
+                    next: "orthopedic_tests"
+                },
+                {
+                    id: "orthopedic_tests",
+                    type: "text",
+                    question: "Orthopedic/Neurological Tests (Optional)",
+                    description: "Document any orthopedic or neurological tests performed",
+                    placeholder: "e.g., Positive Kemp's test on right, negative SLR bilaterally",
+                    next: "regions_treated"
+                },
+                {
+                    id: "regions_treated",
+                    type: "multiple_choice",
+                    question: "Spinal Regions Treated Today",
+                    description: "Select all regions where adjustments were performed (determines CPT code)",
+                    options: [
+                        { value: "cervical", label: "Cervical" },
+                        { value: "thoracic", label: "Thoracic" },
+                        { value: "lumbar", label: "Lumbar" },
+                        { value: "sacrum", label: "Sacrum" },
+                        { value: "pelvis", label: "Pelvis" },
+                        { value: "extremity", label: "Extremities" }
+                    ],
+                    next: "technique_used"
+                },
+                {
+                    id: "technique_used",
+                    type: "single_choice",
+                    question: "Adjustment Technique Used",
+                    description: "Primary technique used for spinal manipulation",
+                    options: [
+                        { value: "diversified", label: "Diversified" },
+                        { value: "gonstead", label: "Gonstead" },
+                        { value: "activator", label: "Activator" },
+                        { value: "thompson", label: "Thompson Drop" },
+                        { value: "sot", label: "SOT (Sacro-Occipital)" },
+                        { value: "flexion_distraction", label: "Flexion-Distraction" },
+                        { value: "other", label: "Other", hasTextField: true }
+                    ],
+                    next: "therapeutic_exercise"
+                },
+                {
+                    id: "therapeutic_exercise",
+                    type: "text",
+                    question: "Therapeutic Exercise (97110) - Minutes",
+                    description: "Enter minutes if therapeutic exercise was performed (leave blank if not performed)",
+                    placeholder: "e.g., 15",
+                    next: "manual_therapy"
+                },
+                {
+                    id: "manual_therapy",
+                    type: "text",
+                    question: "Manual Therapy (97140) - Minutes",
+                    description: "Enter minutes if manual therapy was performed (leave blank if not performed)",
+                    placeholder: "e.g., 10",
+                    next: "neuromuscular_reed"
+                },
+                {
+                    id: "neuromuscular_reed",
+                    type: "text",
+                    question: "Neuromuscular Re-education (97112) - Minutes",
+                    description: "Enter minutes if neuromuscular re-education was performed (leave blank if not performed)",
+                    placeholder: "e.g., 10",
+                    next: "icd10_code"
+                },
+                {
+                    id: "icd10_code",
+                    type: "dropdown",
+                    question: "Primary ICD-10 Diagnosis Code",
+                    description: "Select the primary diagnosis code for billing",
+                    options: [
+                        { value: "M54.2", label: "M54.2 - Cervicalgia (Neck Pain)" },
+                        { value: "M54.5", label: "M54.5 - Low Back Pain" },
+                        { value: "M54.6", label: "M54.6 - Pain in Thoracic Spine" },
+                        { value: "M99.01", label: "M99.01 - Segmental/Somatic Dysfunction, Head Region" },
+                        { value: "M99.02", label: "M99.02 - Segmental/Somatic Dysfunction, Cervical" },
+                        { value: "M99.03", label: "M99.03 - Segmental/Somatic Dysfunction, Thoracic" },
+                        { value: "M99.04", label: "M99.04 - Segmental/Somatic Dysfunction, Lumbar" },
+                        { value: "M99.05", label: "M99.05 - Segmental/Somatic Dysfunction, Sacral" },
+                        { value: "M99.08", label: "M99.08 - Segmental/Somatic Dysfunction, Pelvic" },
+                        { value: "S13.4XXA", label: "S13.4XXA - Sprain of Cervical Spine, Initial" },
+                        { value: "S23.3XXA", label: "S23.3XXA - Sprain of Thoracic Spine, Initial" },
+                        { value: "S33.5XXA", label: "S33.5XXA - Sprain of Lumbar Spine, Initial" },
+                        { value: "M79.1", label: "M79.1 - Myalgia (Muscle Pain)" },
+                        { value: "other", label: "Other (Please specify)", hasTextField: true }
+                    ],
+                    next: "treatment_summary"
                 }
             ],
             billingCodes: {
@@ -687,22 +832,11 @@
         let formHistory = JSON.parse(localStorage.getItem('formHistory') || '[]');
 
         function init() {
-            document.getElementById('configJson').value = JSON.stringify(config, null, 2);
             updateHeader();
-            updatePatientInfoSection();
             loadHistory();
             checkForLoadData();
             if (document.getElementById('patientNameSection').style.display !== 'none') {
                 document.getElementById('patientNameInput').focus();
-            }
-        }
-
-        function updatePatientInfoSection() {
-            if (config.patientInfo) {
-                document.getElementById('patientInfoLabel').textContent = config.patientInfo.label || 'Patient Information';
-                const input = document.getElementById('patientNameInput');
-                input.placeholder = config.patientInfo.placeholder || 'Enter patient\'s full name';
-                document.getElementById('beginIntakeBtn').textContent = config.patientInfo.buttonText || 'Begin Intake';
             }
         }
 
@@ -891,11 +1025,20 @@
         }
 
         function selectSingleChoice(value, hasTextField) {
+            const node = config.nodes.find(n => n.id === currentNodeId);
+            const option = node.options.find(o => o.value === value);
+
             if (hasTextField) {
                 responses[currentNodeId] = { value: value, text: '' };
                 renderQuestion();
             } else {
                 responses[currentNodeId] = value;
+                // Auto-advance to next question
+                const nextNode = option.next || node.next;
+                if (nextNode) {
+                    currentNodeId = nextNode;
+                    renderQuestion();
+                }
             }
         }
 
@@ -1003,20 +1146,17 @@
             renderQuestion();
         }
 
-        function updateProgress() {
-            const totalNodes = config.nodes.length;
-            const completedNodes = Object.keys(responses).length;
-            const progress = (completedNodes / totalNodes) * 100;
-            document.getElementById('progressFill').style.width = progress + '%';
-        }
-
         function showSummary() {
             document.getElementById('questionContainer').style.display = 'none';
             const summaryContainer = document.getElementById('summaryContainer');
             summaryContainer.classList.add('active');
 
-            // Display patient name
+            // Display patient name and date
             document.getElementById('summaryPatientName').textContent = patientName ? `Patient: ${patientName}` : '';
+            document.getElementById('summaryDate').textContent = `Date of Service: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}`;
+
+            // Update treatment documentation button text based on progress
+            updateTreatmentButtonText();
 
             // Save to history
             saveToHistory();
@@ -1084,8 +1224,6 @@
             // Generate billing codes
             const billingHtml = generateBillingCodes();
             document.getElementById('billingCodes').innerHTML = billingHtml;
-
-            updateProgress();
         }
 
         function generateNarrativeSummary() {
@@ -1173,19 +1311,51 @@
             // Current treatment frequency context (for follow-ups)
             let frequencyContext = '';
             if (responses.current_treatment_frequency) {
-                if (responses.current_treatment_frequency === 'once_week') {
-                    frequencyContext = ' The patient is currently receiving treatment once weekly';
-                } else if (responses.current_treatment_frequency === 'twice_week') {
-                    frequencyContext = ' The patient is currently receiving treatment twice weekly';
-                } else if (responses.current_treatment_frequency === 'once_month') {
-                    frequencyContext = ' The patient is currently receiving treatment once monthly';
-                } else if (responses.current_treatment_frequency === 'other_frequency') {
-                    frequencyContext = ' The patient has a variable treatment frequency';
+                if (typeof responses.current_treatment_frequency === 'object' && responses.current_treatment_frequency.value) {
+                    if (responses.current_treatment_frequency.value === 'once_week') {
+                        frequencyContext = ' The patient is currently receiving treatment once weekly';
+                    } else if (responses.current_treatment_frequency.value === 'twice_week') {
+                        frequencyContext = ' The patient is currently receiving treatment twice weekly';
+                    } else if (responses.current_treatment_frequency.value === 'once_month') {
+                        frequencyContext = ' The patient is currently receiving treatment once monthly';
+                    } else if (responses.current_treatment_frequency.value === 'other_frequency' && responses.current_treatment_frequency.text) {
+                        frequencyContext = ` The patient is currently receiving treatment ${responses.current_treatment_frequency.text}`;
+                    }
+                } else if (typeof responses.current_treatment_frequency === 'string') {
+                    if (responses.current_treatment_frequency === 'once_week') {
+                        frequencyContext = ' The patient is currently receiving treatment once weekly';
+                    } else if (responses.current_treatment_frequency === 'twice_week') {
+                        frequencyContext = ' The patient is currently receiving treatment twice weekly';
+                    } else if (responses.current_treatment_frequency === 'once_month') {
+                        frequencyContext = ' The patient is currently receiving treatment once monthly';
+                    }
                 }
             }
 
+            // Aggravating factors
+            let aggravatingContext = '';
+            if (responses.aggravating_factors && Array.isArray(responses.aggravating_factors) && responses.aggravating_factors.length > 0) {
+                const aggNode = config.nodes.find(n => n.id === 'aggravating_factors');
+                const factors = responses.aggravating_factors.map(val => {
+                    const option = aggNode.options.find(o => o.value === val);
+                    return option ? option.label.toLowerCase() : val;
+                }).join(', ');
+                aggravatingContext = ` Symptoms are aggravated by ${factors}`;
+            }
+
+            // Relieving factors
+            let relievingContext = '';
+            if (responses.relieving_factors && Array.isArray(responses.relieving_factors) && responses.relieving_factors.length > 0) {
+                const relNode = config.nodes.find(n => n.id === 'relieving_factors');
+                const factors = responses.relieving_factors.map(val => {
+                    const option = relNode.options.find(o => o.value === val);
+                    return option ? option.label.toLowerCase() : val;
+                }).join(', ');
+                relievingContext = ` and relieved by ${factors}`;
+            }
+
             // Assemble complete narrative
-            narrative += `Patient ${visitContext}${conditionContext}.${painContext}${painLevelContext}.${responseContext}.${frequencyContext}. `;
+            narrative += `Patient ${visitContext}${conditionContext}.${painContext}${painLevelContext}.${aggravatingContext}${relievingContext}.${responseContext}.${frequencyContext}. `;
 
             // Insurance information
             if (responses.insurance_info) {
@@ -1282,10 +1452,6 @@
                 modalitiesList.push('home exercise program');
             }
 
-            modalities = modalitiesList.join(', ');
-
-            plan += `<div class="plan-text">Based on the clinical presentation, the recommended treatment protocol consists of ${modalities}. The patient should be scheduled for treatments ${frequency} ${duration}. Primary therapeutic goals include: ${goals}. Progress will be monitored through regular reassessment of pain levels, range of motion, and functional capacity. The treatment plan will be adjusted as needed based on patient response and clinical outcomes. Patient education regarding posture, ergonomics, and activity modification will be incorporated throughout the treatment course to promote long-term wellness and prevent future injury.</div>`;
-
             plan += `<div class="frequency-highlight">Recommended Visit Frequency: ${frequency.charAt(0).toUpperCase() + frequency.slice(1)} ${duration}</div>`;
 
             return plan;
@@ -1380,25 +1546,11 @@
             }
         }
 
-        function toggleConfig() {
-            const panel = document.getElementById('configPanel');
-            const historyPanel = document.getElementById('historyPanel');
-
-            if (panel.style.display === 'none') {
-                panel.style.display = 'block';
-                historyPanel.style.display = 'none';
-            } else {
-                panel.style.display = 'none';
-            }
-        }
-
         function toggleHistory() {
             const panel = document.getElementById('historyPanel');
-            const configPanel = document.getElementById('configPanel');
 
             if (panel.style.display === 'none') {
                 panel.style.display = 'block';
-                configPanel.style.display = 'none';
                 loadHistory();
             } else {
                 panel.style.display = 'none';
@@ -1511,53 +1663,604 @@
             }
         }
 
-        function loadConfig() {
-            try {
-                const jsonText = document.getElementById('configJson').value;
-                const newConfig = JSON.parse(jsonText);
-                config = newConfig;
-                updateHeader();
-                updatePatientInfoSection();
-                alert('Configuration loaded successfully!');
+        let treatmentResponses = {};
+        let treatmentCurrentNodeId = null;
+        let serviceDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
-                // Reset to patient info page if config changes
+        function showTreatmentForm() {
+            // Display patient name and date
+            document.getElementById('treatmentPatientName').textContent = patientName ? `Patient: ${patientName}` : '';
+            document.getElementById('treatmentDate').textContent = `Date of Service: ${serviceDate}`;
+
+            // Carry over relevant info from assessment
+            let carryOverHtml = '<ul style="margin: 0; padding-left: 20px;">';
+
+            if (responses.injury_type) {
+                const injuryNode = config.nodes.find(n => n.id === 'injury_type');
+                const injuryOption = injuryNode.options.find(o => o.value === responses.injury_type);
+                if (injuryOption) {
+                    carryOverHtml += `<li><strong>Condition:</strong> ${injuryOption.label}</li>`;
+                }
+            }
+
+            if (responses.pain_location && Array.isArray(responses.pain_location)) {
+                const painNode = config.nodes.find(n => n.id === 'pain_location');
+                const locations = responses.pain_location.map(val => {
+                    const option = painNode.options.find(o => o.value === val);
+                    return option ? option.label : val;
+                }).join(', ');
+                carryOverHtml += `<li><strong>Pain Location:</strong> ${locations}</li>`;
+            }
+
+            if (responses.pain_level) {
+                const painLevelNode = config.nodes.find(n => n.id === 'pain_level');
+                const painOption = painLevelNode.options.find(o => o.value === responses.pain_level);
+                if (painOption) {
+                    carryOverHtml += `<li><strong>Pain Level:</strong> ${painOption.label}</li>`;
+                }
+            }
+
+            carryOverHtml += '</ul>';
+            document.getElementById('carryOverInfo').innerHTML = carryOverHtml;
+
+            // Hide summary, show treatment form
+            document.getElementById('summaryContainer').classList.remove('active');
+            document.getElementById('treatmentFormContainer').style.display = 'block';
+
+            // Resume where they left off, or start fresh if no progress
+            if (Object.keys(treatmentResponses).length === 0) {
+                // No progress yet - start from beginning
+                treatmentCurrentNodeId = config.treatmentNodes[0].id;
+            } else {
+                // Has progress - find where to resume
+                treatmentCurrentNodeId = findNextTreatmentNode();
+            }
+
+            renderTreatmentQuestion();
+        }
+
+        function findNextTreatmentNode() {
+            // Find the first unanswered question
+            for (let i = 0; i < config.treatmentNodes.length; i++) {
+                const node = config.treatmentNodes[i];
+                if (!treatmentResponses[node.id]) {
+                    return node.id;
+                }
+            }
+            // All questions answered - show summary
+            return 'treatment_summary';
+        }
+
+        function backToSummary() {
+            document.getElementById('treatmentFormContainer').style.display = 'none';
+            document.getElementById('summaryContainer').classList.add('active');
+        }
+
+        function renderTreatmentQuestion() {
+            if (treatmentCurrentNodeId === 'treatment_summary') {
+                showTreatmentSummary();
+                return;
+            }
+
+            const node = config.treatmentNodes.find(n => n.id === treatmentCurrentNodeId);
+            if (!node) {
+                console.error('Treatment node not found:', treatmentCurrentNodeId);
+                return;
+            }
+
+            const questionContainer = document.getElementById('treatmentQuestionContainer');
+            let html = `
+                <div class="question">
+                    <h2>${node.question}</h2>
+                    <p>${node.description}</p>
+            `;
+
+            if (node.type === 'single_choice') {
+                html += '<div class="options">';
+                const currentValue = typeof treatmentResponses[treatmentCurrentNodeId] === 'object' ?
+                    treatmentResponses[treatmentCurrentNodeId].value : treatmentResponses[treatmentCurrentNodeId];
+
+                node.options.forEach(option => {
+                    const selected = currentValue === option.value ? 'selected' : '';
+                    html += `
+                        <button class="option-btn ${selected}" onclick="selectTreatmentChoice('${option.value}', ${option.hasTextField || false})">
+                            ${option.label}
+                        </button>
+                    `;
+                });
+                html += '</div>';
+
+                const hasTextFieldOption = node.options.find(opt => opt.hasTextField);
+                const showTextField = hasTextFieldOption && currentValue === hasTextFieldOption.value;
+                const currentText = (typeof treatmentResponses[treatmentCurrentNodeId] === 'object' &&
+                    treatmentResponses[treatmentCurrentNodeId].text) ? treatmentResponses[treatmentCurrentNodeId].text : '';
+
+                if (hasTextFieldOption) {
+                    html += `
+                        <div id="treatmentTextField" style="margin-top: 15px; ${showTextField ? '' : 'display: none;'}">
+                            <input type="text" class="input-field" id="treatmentTextInput"
+                                   placeholder="Please specify"
+                                   value="${currentText}"
+                                   onkeypress="if(event.key==='Enter') nextTreatmentQuestion('${node.next}')">
+                        </div>
+                    `;
+                }
+
+                html += `
+                    <div class="button-group">
+                        <button class="btn" onclick="nextTreatmentQuestion('${node.next}')">Continue</button>
+                        <button class="btn btn-secondary" onclick="backToSummary()">← Back to Summary</button>
+                    </div>
+                `;
+            } else if (node.type === 'multiple_choice') {
+                html += '<div class="options">';
+                const currentResponses = treatmentResponses[treatmentCurrentNodeId] || [];
+                node.options.forEach(option => {
+                    const selected = currentResponses.includes(option.value) ? 'selected' : '';
+                    html += `
+                        <button class="option-btn ${selected}" onclick="toggleTreatmentMultiple('${option.value}')">
+                            ${option.label}
+                        </button>
+                    `;
+                });
+                html += '</div>';
+                html += `
+                    <div class="button-group">
+                        <button class="btn" onclick="nextTreatmentQuestion('${node.next}')">Continue</button>
+                        <button class="btn btn-secondary" onclick="backToSummary()">← Back to Summary</button>
+                    </div>
+                `;
+            } else if (node.type === 'text') {
+                const currentValue = treatmentResponses[treatmentCurrentNodeId] || '';
+                html += `
+                    <input type="text" class="input-field" id="treatmentTextInputMain"
+                           placeholder="${node.placeholder || ''}"
+                           value="${currentValue}"
+                           onkeypress="if(event.key==='Enter') nextFromTreatmentText('${node.next}')">
+                    <div class="button-group">
+                        <button class="btn" onclick="nextFromTreatmentText('${node.next}')">Continue</button>
+                        <button class="btn btn-secondary" onclick="backToSummary()">← Back to Summary</button>
+                    </div>
+                `;
+            } else if (node.type === 'dropdown') {
+                const currentValue = treatmentResponses[treatmentCurrentNodeId]?.value || '';
+                const currentOther = treatmentResponses[treatmentCurrentNodeId]?.other || '';
+                html += `
+                    <select class="input-field" id="treatmentDropdown" onchange="handleTreatmentDropdown()">
+                        <option value="">-- Select --</option>
+                `;
+                node.options.forEach(option => {
+                    const selected = currentValue === option.value ? 'selected' : '';
+                    html += `<option value="${option.value}" ${selected}>${option.label}</option>`;
+                });
+                html += `</select>`;
+
+                const showOther = currentValue === 'other';
+                html += `
+                    <div id="treatmentOtherField" style="margin-top: 15px; ${showOther ? '' : 'display: none;'}">
+                        <input type="text" class="input-field" id="treatmentOtherInput"
+                               placeholder="Please specify"
+                               value="${currentOther}"
+                               onkeypress="if(event.key==='Enter') nextFromTreatmentDropdown('${node.next}')">
+                    </div>
+                    <div class="button-group">
+                        <button class="btn" onclick="nextFromTreatmentDropdown('${node.next}')">Continue</button>
+                        <button class="btn btn-secondary" onclick="backToSummary()">← Back to Summary</button>
+                    </div>
+                `;
+            }
+
+            html += '</div>';
+            questionContainer.innerHTML = html;
+        }
+
+        function goBackTreatment() {
+            const nodeIds = Object.keys(treatmentResponses);
+            if (nodeIds.length === 0) {
+                // If no responses, go back to summary
+                backToSummary();
+                return;
+            }
+
+            const lastNodeId = nodeIds[nodeIds.length - 1];
+            delete treatmentResponses[lastNodeId];
+            treatmentCurrentNodeId = lastNodeId;
+            renderTreatmentQuestion();
+        }
+
+        function goBackFromSummary() {
+            const nodeIds = Object.keys(responses);
+            if (nodeIds.length === 0) {
+                // If no responses, go back to patient name
                 document.getElementById('patientNameSection').style.display = 'block';
                 document.getElementById('mainCard').style.display = 'none';
-                document.getElementById('patientNameInput').value = '';
-                patientName = '';
-            } catch (e) {
-                alert('Invalid JSON configuration: ' + e.message);
+                return;
+            }
+
+            const lastNodeId = nodeIds[nodeIds.length - 1];
+            delete responses[lastNodeId];
+            currentNodeId = lastNodeId;
+
+            document.getElementById('summaryContainer').classList.remove('active');
+            document.getElementById('questionContainer').style.display = 'block';
+            renderQuestion();
+        }
+
+        function selectTreatmentChoice(value, hasTextField) {
+            const node = config.treatmentNodes.find(n => n.id === treatmentCurrentNodeId);
+
+            if (hasTextField) {
+                treatmentResponses[treatmentCurrentNodeId] = { value: value, text: '' };
+                renderTreatmentQuestion();
+            } else {
+                treatmentResponses[treatmentCurrentNodeId] = value;
+                treatmentCurrentNodeId = node.next;
+                renderTreatmentQuestion();
             }
         }
 
-        function resetConfig() {
-            if (confirm('Reset to default configuration?')) {
-                config = JSON.parse(JSON.stringify(defaultConfig));
-                document.getElementById('configJson').value = JSON.stringify(config, null, 2);
-                updateHeader();
-                updatePatientInfoSection();
+        function toggleTreatmentMultiple(value) {
+            if (!treatmentResponses[treatmentCurrentNodeId]) {
+                treatmentResponses[treatmentCurrentNodeId] = [];
+            }
+            const index = treatmentResponses[treatmentCurrentNodeId].indexOf(value);
+            if (index > -1) {
+                treatmentResponses[treatmentCurrentNodeId].splice(index, 1);
+            } else {
+                treatmentResponses[treatmentCurrentNodeId].push(value);
+            }
+            renderTreatmentQuestion();
+        }
 
-                // Reset to patient info page
-                document.getElementById('patientNameSection').style.display = 'block';
-                document.getElementById('mainCard').style.display = 'none';
-                document.getElementById('patientNameInput').value = '';
-                patientName = '';
+        function nextTreatmentQuestion(next) {
+            const currentResponse = treatmentResponses[treatmentCurrentNodeId];
+            const textInput = document.getElementById('treatmentTextInput');
+
+            if (textInput && typeof currentResponse === 'object') {
+                treatmentResponses[treatmentCurrentNodeId].text = textInput.value.trim();
+            }
+
+            treatmentCurrentNodeId = next;
+            renderTreatmentQuestion();
+        }
+
+        function nextFromTreatmentText(next) {
+            const input = document.getElementById('treatmentTextInputMain');
+            if (input && input.value.trim()) {
+                treatmentResponses[treatmentCurrentNodeId] = input.value.trim();
+            }
+            treatmentCurrentNodeId = next;
+            renderTreatmentQuestion();
+        }
+
+        function handleTreatmentDropdown() {
+            const dropdown = document.getElementById('treatmentDropdown');
+            const otherField = document.getElementById('treatmentOtherField');
+
+            if (dropdown.value === 'other') {
+                otherField.style.display = 'block';
+                document.getElementById('treatmentOtherInput').focus();
+            } else {
+                otherField.style.display = 'none';
             }
         }
 
-        function exportConfig() {
-            const dataStr = JSON.stringify(config, null, 2);
-            const dataBlob = new Blob([dataStr], { type: 'application/json' });
-            const url = URL.createObjectURL(dataBlob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'decision-tree-config.json';
-            link.click();
+        function nextFromTreatmentDropdown(next) {
+            const dropdown = document.getElementById('treatmentDropdown');
+            const otherInput = document.getElementById('treatmentOtherInput');
+
+            if (dropdown && dropdown.value) {
+                treatmentResponses[treatmentCurrentNodeId] = {
+                    value: dropdown.value,
+                    other: dropdown.value === 'other' && otherInput ? otherInput.value.trim() : ''
+                };
+            }
+            treatmentCurrentNodeId = next;
+            renderTreatmentQuestion();
         }
 
-        function showShareInstructions() {
-            const instructions = document.getElementById('shareInstructions');
-            instructions.classList.toggle('hidden');
+        function showTreatmentSummary() {
+            let summaryHtml = '<h2 style="margin-bottom: 20px;">Complete Patient Documentation</h2>';
+
+            // Add Clinical Summary from initial assessment
+            summaryHtml += '<div class="narrative-summary">';
+            summaryHtml += '<h3>Clinical Summary</h3>';
+            summaryHtml += '<div class="narrative-text">';
+            summaryHtml += generateNarrativeSummary().replace('<h3>Clinical Summary</h3><div class="narrative-text">', '').replace('</div>', '');
+            summaryHtml += '</div></div>';
+
+            // Add Recommended Treatment Plan
+            summaryHtml += '<div class="treatment-plan" style="margin-top: 20px;">';
+            summaryHtml += generateTreatmentPlan().replace('<h3>Recommended Treatment Plan</h3>', '<h3>Recommended Treatment Plan</h3>');
+            summaryHtml += '</div>';
+
+            // Objective Findings Section
+            summaryHtml += '<div class="narrative-summary">';
+            summaryHtml += '<h3>Objective Findings</h3>';
+            summaryHtml += '<div class="narrative-text">';
+
+            // ROM
+            if (treatmentResponses.rom_assessment) {
+                const romLabels = { 'normal': 'Normal', 'reduced': 'Reduced', 'severely_limited': 'Severely Limited' };
+                summaryHtml += `Range of motion assessment reveals ${romLabels[treatmentResponses.rom_assessment] || treatmentResponses.rom_assessment} mobility in affected regions. `;
+            }
+
+            // Subluxation
+            if (treatmentResponses.subluxation) {
+                summaryHtml += `${treatmentResponses.subluxation}. `;
+            }
+
+            // Spinal Levels
+            if (treatmentResponses.spinal_levels && Array.isArray(treatmentResponses.spinal_levels)) {
+                const levelNode = config.treatmentNodes.find(n => n.id === 'spinal_levels');
+                const levels = treatmentResponses.spinal_levels.map(val => {
+                    const option = levelNode.options.find(o => o.value === val);
+                    return option ? option.label : val;
+                }).join(', ');
+                summaryHtml += `Specific spinal levels affected include: ${levels}. `;
+            }
+
+            // Palpation
+            if (treatmentResponses.palpation_findings) {
+                summaryHtml += `Palpation findings: ${treatmentResponses.palpation_findings}. `;
+            }
+
+            // Orthopedic tests
+            if (treatmentResponses.orthopedic_tests) {
+                summaryHtml += `Orthopedic/neurological examination: ${treatmentResponses.orthopedic_tests}. `;
+            }
+
+            summaryHtml += '</div></div>';
+
+            // Treatment Performed Section
+            summaryHtml += '<div class="treatment-plan" style="margin-top: 20px;">';
+            summaryHtml += '<h3>Treatment Performed Today</h3>';
+            summaryHtml += '<div class="plan-text">';
+
+            // Regions treated
+            if (treatmentResponses.regions_treated && Array.isArray(treatmentResponses.regions_treated)) {
+                const regionsNode = config.treatmentNodes.find(n => n.id === 'regions_treated');
+                const regions = treatmentResponses.regions_treated.map(val => {
+                    const option = regionsNode.options.find(o => o.value === val);
+                    return option ? option.label : val;
+                }).join(', ');
+                summaryHtml += `Spinal manipulation performed to the following regions: ${regions}. `;
+            }
+
+            // Technique
+            if (treatmentResponses.technique_used) {
+                let technique = '';
+                if (typeof treatmentResponses.technique_used === 'object' && treatmentResponses.technique_used.value) {
+                    if (treatmentResponses.technique_used.value === 'other' && treatmentResponses.technique_used.text) {
+                        technique = treatmentResponses.technique_used.text;
+                    } else {
+                        const techNode = config.treatmentNodes.find(n => n.id === 'technique_used');
+                        const option = techNode.options.find(o => o.value === treatmentResponses.technique_used.value);
+                        technique = option ? option.label : treatmentResponses.technique_used.value;
+                    }
+                } else {
+                    const techNode = config.treatmentNodes.find(n => n.id === 'technique_used');
+                    const option = techNode.options.find(o => o.value === treatmentResponses.technique_used);
+                    technique = option ? option.label : treatmentResponses.technique_used;
+                }
+                summaryHtml += `Technique utilized: ${technique}. `;
+            }
+
+            // Timed services
+            let timedServices = [];
+            if (treatmentResponses.therapeutic_exercise) {
+                timedServices.push(`Therapeutic Exercise (97110): ${treatmentResponses.therapeutic_exercise} minutes`);
+            }
+            if (treatmentResponses.manual_therapy) {
+                timedServices.push(`Manual Therapy (97140): ${treatmentResponses.manual_therapy} minutes`);
+            }
+            if (treatmentResponses.neuromuscular_reed) {
+                timedServices.push(`Neuromuscular Re-education (97112): ${treatmentResponses.neuromuscular_reed} minutes`);
+            }
+
+            if (timedServices.length > 0) {
+                summaryHtml += `Additional timed services provided: ${timedServices.join('; ')}. `;
+            }
+
+            summaryHtml += '</div></div>';
+
+            // Assessment/Diagnosis
+            summaryHtml += '<div class="billing-codes" style="margin-top: 20px;">';
+            summaryHtml += '<h3>Assessment & Diagnosis</h3>';
+
+            if (treatmentResponses.icd10_code) {
+                let diagnosis = '';
+                if (typeof treatmentResponses.icd10_code === 'object' && treatmentResponses.icd10_code.value) {
+                    if (treatmentResponses.icd10_code.value === 'other' && treatmentResponses.icd10_code.other) {
+                        diagnosis = treatmentResponses.icd10_code.other;
+                    } else {
+                        const icdNode = config.treatmentNodes.find(n => n.id === 'icd10_code');
+                        const option = icdNode.options.find(o => o.value === treatmentResponses.icd10_code.value);
+                        diagnosis = option ? option.label : treatmentResponses.icd10_code.value;
+                    }
+                } else {
+                    diagnosis = treatmentResponses.icd10_code;
+                }
+                summaryHtml += `<div class="code-item"><strong>Primary Diagnosis:</strong> ${diagnosis}</div>`;
+            }
+
+            summaryHtml += '</div>';
+
+            // CPT Codes based on regions treated
+            summaryHtml += '<div class="billing-codes" style="margin-top: 20px;">';
+            summaryHtml += '<h3>Suggested CPT Codes</h3>';
+
+            if (treatmentResponses.regions_treated && Array.isArray(treatmentResponses.regions_treated)) {
+                const regionCount = treatmentResponses.regions_treated.length;
+                if (regionCount === 1 || regionCount === 2) {
+                    summaryHtml += '<div class="code-item">98940 - Chiropractic Manipulative Treatment (CMT), spinal, 1-2 regions</div>';
+                } else if (regionCount === 3 || regionCount === 4) {
+                    summaryHtml += '<div class="code-item">98941 - Chiropractic Manipulative Treatment (CMT), spinal, 3-4 regions</div>';
+                } else if (regionCount >= 5) {
+                    summaryHtml += '<div class="code-item">98942 - Chiropractic Manipulative Treatment (CMT), spinal, 5 regions</div>';
+                }
+            }
+
+            if (treatmentResponses.therapeutic_exercise) {
+                summaryHtml += '<div class="code-item">97110 - Therapeutic Exercise</div>';
+            }
+            if (treatmentResponses.manual_therapy) {
+                summaryHtml += '<div class="code-item">97140 - Manual Therapy</div>';
+            }
+            if (treatmentResponses.neuromuscular_reed) {
+                summaryHtml += '<div class="code-item">97112 - Neuromuscular Re-education</div>';
+            }
+
+            summaryHtml += '</div>';
+
+            // Organized detailed responses grouped by category
+            summaryHtml += '<div style="margin-top: 40px; border-top: 2px solid #d4cfc4; padding-top: 30px;">';
+            summaryHtml += '<h2 style="color: #2F5D50; margin-bottom: 20px;">Detailed Documentation Reference</h2>';
+
+            // Assessment Responses Group
+            summaryHtml += '<div style="background: white; border: 2px solid #2F5D50; border-radius: 8px; padding: 20px; margin-bottom: 20px;">';
+            summaryHtml += '<h3 style="color: #2F5D50; margin-bottom: 15px; font-size: 18px;">Initial Assessment Details</h3>';
+            summaryHtml += '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">';
+
+            // Add initial assessment responses in organized cards
+            const assessmentFields = ['visit_type', 'injury_type', 'work_injury_details', 'accident_details', 'pain_location', 'pain_level', 'aggravating_factors', 'relieving_factors', 'treatment_response', 'current_treatment_frequency', 'insurance_info'];
+
+            assessmentFields.forEach(fieldId => {
+                const node = config.nodes.find(n => n.id === fieldId);
+                if (node && responses[fieldId]) {
+                    let responseText = responses[fieldId];
+
+                    if (node.type === 'single_choice') {
+                        if (typeof responses[fieldId] === 'object' && responses[fieldId].value) {
+                            const option = node.options.find(o => o.value === responses[fieldId].value);
+                            responseText = option ? option.label : responses[fieldId].value;
+                            if (responses[fieldId].text) {
+                                responseText += ': ' + responses[fieldId].text;
+                            }
+                        } else {
+                            const option = node.options.find(o => o.value === responses[fieldId]);
+                            responseText = option ? option.label : responses[fieldId];
+                        }
+                    } else if (node.type === 'multiple_choice' && Array.isArray(responses[fieldId])) {
+                        const items = responses[fieldId].map(val => {
+                            const option = node.options.find(o => o.value === val);
+                            return option ? option.label : val;
+                        });
+                        responseText = '<ul style="margin: 5px 0 0 20px; padding: 0;">' + items.map(item => `<li>${item}</li>`).join('') + '</ul>';
+                    } else if (node.type === 'dropdown' && typeof responses[fieldId] === 'object') {
+                        const option = node.options.find(o => o.value === responses[fieldId].value);
+                        if (responses[fieldId].value === 'other' && responses[fieldId].other) {
+                            responseText = responses[fieldId].other;
+                        } else {
+                            responseText = option ? option.label : responses[fieldId].value;
+                        }
+                    } else if (node.type === 'date_text' && typeof responses[fieldId] === 'object') {
+                        const parts = [];
+                        if (responses[fieldId].date) parts.push(`<strong>Date:</strong> ${responses[fieldId].date}`);
+                        if (responses[fieldId].text) parts.push(responses[fieldId].text);
+                        responseText = parts.join('<br>');
+                    }
+
+                    summaryHtml += `
+                        <div style="background: #FAF6EE; padding: 12px; border-radius: 6px; border-left: 3px solid #2F5D50;">
+                            <div style="font-weight: 600; color: #2F5D50; font-size: 13px; margin-bottom: 5px;">${node.question}</div>
+                            <div style="color: #000000; font-size: 14px;">${responseText}</div>
+                        </div>
+                    `;
+                }
+            });
+
+            summaryHtml += '</div></div>';
+
+            // Treatment Documentation Responses Group
+            summaryHtml += '<div style="background: #fff8f3; border: 2px solid #D97652; border-radius: 8px; padding: 20px; margin-bottom: 20px;">';
+            summaryHtml += '<h3 style="color: #D97652; margin-bottom: 15px; font-size: 18px;">Treatment Documentation Details</h3>';
+            summaryHtml += '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">';
+
+            config.treatmentNodes.forEach(node => {
+                if (treatmentResponses[node.id]) {
+                    let responseText = treatmentResponses[node.id];
+
+                    if (node.type === 'single_choice') {
+                        if (typeof treatmentResponses[node.id] === 'object' && treatmentResponses[node.id].value) {
+                            const option = node.options.find(o => o.value === treatmentResponses[node.id].value);
+                            responseText = option ? option.label : treatmentResponses[node.id].value;
+                            if (treatmentResponses[node.id].text) {
+                                responseText += ': ' + treatmentResponses[node.id].text;
+                            }
+                        } else {
+                            const option = node.options.find(o => o.value === treatmentResponses[node.id]);
+                            responseText = option ? option.label : treatmentResponses[node.id];
+                        }
+                    } else if (node.type === 'multiple_choice' && Array.isArray(treatmentResponses[node.id])) {
+                        const items = treatmentResponses[node.id].map(val => {
+                            const option = node.options.find(o => o.value === val);
+                            return option ? option.label : val;
+                        });
+                        responseText = '<ul style="margin: 5px 0 0 20px; padding: 0;">' + items.map(item => `<li>${item}</li>`).join('') + '</ul>';
+                    } else if (node.type === 'dropdown' && typeof treatmentResponses[node.id] === 'object') {
+                        const option = node.options.find(o => o.value === treatmentResponses[node.id].value);
+                        if (treatmentResponses[node.id].value === 'other' && treatmentResponses[node.id].other) {
+                            responseText = treatmentResponses[node.id].other;
+                        } else {
+                            responseText = option ? option.label : treatmentResponses[node.id].value;
+                        }
+                    }
+
+                    summaryHtml += `
+                        <div style="background: white; padding: 12px; border-radius: 6px; border-left: 3px solid #D97652;">
+                            <div style="font-weight: 600; color: #D97652; font-size: 13px; margin-bottom: 5px;">${node.question}</div>
+                            <div style="color: #000000; font-size: 14px;">${responseText}</div>
+                        </div>
+                    `;
+                }
+            });
+
+            summaryHtml += '</div></div>';
+            summaryHtml += '</div>';
+
+            document.getElementById('treatmentQuestionContainer').innerHTML = summaryHtml;
+        }
+
+        function updateTreatmentButtonText() {
+            const button = document.getElementById('treatmentDocButton');
+            if (!button) return;
+
+            const totalQuestions = config.treatmentNodes.length;
+            const answeredQuestions = Object.keys(treatmentResponses).length;
+
+            if (answeredQuestions === 0) {
+                button.textContent = 'Complete Treatment Documentation →';
+            } else if (answeredQuestions === totalQuestions) {
+                button.textContent = 'View Treatment Documentation →';
+            } else {
+                button.textContent = `Continue Treatment Documentation (${answeredQuestions}/${totalQuestions}) →`;
+            }
+        }
+
+        function exportTreatmentDoc(format) {
+            const fullDoc = {
+                patientName: patientName,
+                dateOfService: serviceDate,
+                assessment: responses,
+                treatment: treatmentResponses,
+                timestamp: new Date().toISOString()
+            };
+
+            if (format === 'json') {
+                const dataStr = JSON.stringify(fullDoc, null, 2);
+                const dataBlob = new Blob([dataStr], { type: 'application/json' });
+                const url = URL.createObjectURL(dataBlob);
+                const link = document.createElement('a');
+                link.href = url;
+                const fileName = patientName ?
+                    `${patientName.replace(/\s/g, '_')}-treatment-${Date.now()}.json` :
+                    `treatment-doc-${Date.now()}.json`;
+                link.download = fileName;
+                link.click();
+            } else if (format === 'pdf') {
+                window.print();
+            }
         }
 
         // Initialize on page load
