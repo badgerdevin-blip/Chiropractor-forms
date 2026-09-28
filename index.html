@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiropractic Patient Intake Decision Tree</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #718096;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            background: #e2e8f0;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .question {
+            margin-bottom: 30px;
+        }
+
+        .question h2 {
+            color: #2d3748;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .question p {
+            color: #718096;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .options {
+            display: grid;
+            gap: 12px;
+        }
+
+        .option-btn {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+            font-size: 16px;
+            color: #2d3748;
+        }
+
+        .option-btn:hover {
+            border-color: #667eea;
+            background: #edf2f7;
+            transform: translateY(-2px);
+        }
+
+        .option-btn.selected {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: #667eea;
+            color: white;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #f7fafc;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .summary {
+            display: none;
+        }
+
+        .summary.active {
+            display: block;
+        }
+
+        .summary-item {
+            padding: 16px;
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            margin-bottom: 12px;
+            border-radius: 4px;
+        }
+
+        .summary-item strong {
+            color: #2d3748;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .summary-item span {
+            color: #718096;
+        }
+
+        .collapsible-section {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 20px;
+        }
+
+        .collapsible-header {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #2d3748;
+            user-select: none;
+        }
+
+        .collapsible-header:hover {
+            color: #667eea;
+        }
+
+        .collapsible-arrow {
+            transition: transform 0.3s;
+            font-size: 18px;
+        }
+
+        .collapsible-arrow.open {
+            transform: rotate(180deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .collapsible-content.open {
+            max-height: 2000px;
+            margin-top: 16px;
+        }
+
+        .patient-name-section {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .patient-name-section h3 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .export-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .dropdown-menu {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .dropdown-content.show {
+            display: block;
+        }
+
+        .dropdown-item {
+            color: #2d3748;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+            border: none;
+            background: white;
+            width: 100%;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f7fafc;
+        }
+
+        .bottom-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .billing-codes {
+            background: #fffaf0;
+            border: 2px solid #fbd38d;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .billing-codes h3 {
+            color: #744210;
+            margin-bottom: 12px;
+        }
+
+        .code-item {
+            background: white;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .narrative-summary {
+            background: #f0f9ff;
+            border: 2px solid #7dd3fc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .narrative-summary h3 {
+            color: #0c4a6e;
+            margin-bottom: 12px;
+        }
+
+        .narrative-text {
+            color: #1e293b;
+            line-height: 1.8;
+            font-size: 15px;
+            text-align: justify;
+        }
+
+        .treatment-plan {
+            background: #f0fdf4;
+            border: 2px solid #86efac;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .treatment-plan h3 {
+            color: #14532d;
+            margin-bottom: 12px;
+        }
+
+        .plan-text {
+            color: #1e293b;
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .frequency-highlight {
+            background: white;
+            border-left: 4px solid #22c55e;
+            padding: 12px 16px;
+            margin-top: 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #14532d;
+        }
+
+        .config-panel {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            color: #2d3748;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .config-panel:hover {
+            opacity: 1;
+        }
+
+        .config-panel h3 {
+            margin-bottom: 10px;
+            color: #4a5568;
+        }
+
+        .config-panel textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            border: 1px solid #cbd5e0;
+        }
+
+        .toggle-config {
+            margin-bottom: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .card {
+                box-shadow: none;
+                border: 1px solid #e2e8f0;
+            }
+            .btn, .config-panel {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="headerTitle">Chiropractic Patient Intake</h1>
+            <p id="headerSubtitle">Complete the following questions for insurance billing documentation</p>
+        </div>
+
+        <div class="patient-name-section" id="patientNameSection">
+            <h3 id="patientInfoLabel">Patient Information</h3>
+            <input type="text" class="input-field" id="patientNameInput"
+                   placeholder="Enter patient's full name"
+                   onkeypress="if(event.key==='Enter') startIntake()">
+            <div class="button-group" style="margin-top: 15px;">
+                <button class="btn" id="beginIntakeBtn" onclick="startIntake()">Begin Intake</button>
+            </div>
+        </div>
+
+        <div class="card" id="mainCard" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+
+            <div id="questionContainer"></div>
+
+            <div class="summary" id="summaryContainer">
+                <h2>Patient Summary for Insurance Billing</h2>
+                <h3 id="summaryPatientName" style="color: #667eea; margin-bottom: 20px;"></h3>
+
+                <div class="narrative-summary" id="narrativeSummary"></div>
+
+                <div class="treatment-plan" id="treatmentPlan"></div>
+
+                <div class="collapsible-section">
+                    <div class="collapsible-header" onclick="toggleResponses()">
+                        <span>Detailed Responses</span>
+                        <span class="collapsible-arrow" id="responsesArrow">▼</span>
+                    </div>
+                    <div class="collapsible-content" id="responsesContent">
+                        <div id="summaryContent"></div>
+                    </div>
+                </div>
+
+                <div class="billing-codes" id="billingCodes"></div>
+
+                <div class="export-actions">
+                    <button class="btn btn-secondary" onclick="restart()">Start Over</button>
+                    <div class="dropdown-menu">
+                        <button class="btn" onclick="toggleExportMenu()">Export ▼</button>
+                        <div class="dropdown-content" id="exportDropdown">
+                            <button class="dropdown-item" onclick="exportSummary('json')">Download as JSON</button>
+                            <button class="dropdown-item" onclick="exportSummary('pdf')">Print/Save as PDF</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-actions">
+            <button class="btn btn-secondary" onclick="toggleHistory()" style="font-size: 11px; padding: 8px 14px;">
+                📋 Recent Form History
+            </button>
+            <button class="btn btn-secondary" onclick="toggleConfig()" style="font-size: 11px; padding: 8px 14px;">
+                ⚙️ Advanced Configuration
+            </button>
+        </div>
+
+        <div class="config-panel" id="historyPanel" style="display: none;">
+            <h3 style="font-size: 14px; margin-bottom: 15px;">Recent Form History</h3>
+            <div id="historyContent" style="font-size: 12px;">
+                <p style="color: #718096;">No recent forms found.</p>
+            </div>
+        </div>
+
+        <div class="config-panel" id="configPanel" style="display: none;">
+            <div id="configEditor">
+                <h3 style="font-size: 14px;">Decision Tree Configuration (JSON)</h3>
+                <div style="background: #fffaf0; border: 1px solid #fbd38d; border-radius: 6px; padding: 12px; margin-bottom: 12px; font-size: 11px;">
+                    <strong>📝 Configuration Guide:</strong>
+                    <ul style="margin: 8px 0 0 20px; line-height: 1.6;">
+                        <li><code>title</code> & <code>subtitle</code> - Main header text</li>
+                        <li><code>patientInfo</code> - Opening page settings:
+                            <ul style="margin-left: 15px;">
+                                <li><code>label</code> - Heading text</li>
+                                <li><code>placeholder</code> - Input placeholder</li>
+                                <li><code>buttonText</code> - Button label</li>
+                            </ul>
+                        </li>
+                        <li><code>nodes</code> - Question array (all optional):
+                            <ul style="margin-left: 15px;">
+                                <li><code>single_choice</code> - Requires: options with value/label/next</li>
+                                <li><code>multiple_choice</code> - Requires: options, next</li>
+                                <li><code>text</code> - Requires: placeholder (optional), next</li>
+                                <li><code>date_text</code> - Requires: dateLabel, textLabel, next</li>
+                                <li><code>dropdown</code> - Requires: options (set <code>hasTextField: true</code> for "Other")</li>
+                            </ul>
+                        </li>
+                        <li><code>billingCodes</code> - CPT codes for insurance</li>
+                    </ul>
+                    <p style="margin-top: 8px; color: #744210;"><strong>Note:</strong> All questions are now optional. Users can click "Continue" to skip any question.</p>
+                </div>
+                <textarea id="configJson" style="font-size: 11px; min-height: 200px;"></textarea>
+                <div class="button-group">
+                    <button class="btn" onclick="loadConfig()" style="font-size: 12px; padding: 8px 16px;">Apply Configuration</button>
+                    <button class="btn btn-secondary" onclick="resetConfig()" style="font-size: 12px; padding: 8px 16px;">Reset to Default</button>
+                    <button class="btn btn-secondary" onclick="exportConfig()" style="font-size: 12px; padding: 8px 16px;">Export Config</button>
+                    <button class="btn btn-secondary" onclick="showShareInstructions()" style="font-size: 12px; padding: 8px 16px;">Share Instructions</button>
+                </div>
+                <div id="shareInstructions" class="hidden" style="margin-top: 15px; padding: 12px; background: #1a202c; border-radius: 8px; color: #e2e8f0; font-size: 12px;">
+                    <h4 style="margin-bottom: 8px; font-size: 13px;">How to Share This Form:</h4>
+                    <ol style="margin-left: 20px; line-height: 1.6;">
+                        <li><strong>Email/File Transfer:</strong> Simply send this HTML file to another computer. It's a single, self-contained file that works offline.</li>
+                        <li><strong>USB/Cloud:</strong> Copy this file to a USB drive, Dropbox, Google Drive, or any cloud storage.</li>
+                        <li><strong>Web Hosting (Online Access):</strong>
+                            <ul style="margin-left: 20px; margin-top: 6px;">
+                                <li>Free: Upload to <a href="https://pages.github.com/" target="_blank" style="color: #7dd3fc;">GitHub Pages</a>, <a href="https://www.netlify.com/products/drop/" target="_blank" style="color: #7dd3fc;">Netlify Drop</a>, or <a href="https://surge.sh/" target="_blank" style="color: #7dd3fc;">Surge.sh</a></li>
+                                <li>Professional: Host on your office website or cloud provider</li>
+                            </ul>
+                        </li>
+                        <li><strong>Customization:</strong> Edit the JSON configuration above to customize questions, or make a copy of this file for different office locations.</li>
+                    </ol>
+                    <p style="margin-top: 10px;"><strong>Note:</strong> This is a single HTML file with everything built-in. No internet connection or server required to use it!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Default configuration for chiropractic office
+        const defaultConfig = {
+            title: "Chiropractic Patient Intake",
+            subtitle: "Complete the following questions for insurance billing documentation",
+            patientInfo: {
+                label: "Patient Information",
+                fieldLabel: "Enter patient's full name",
+                placeholder: "Enter patient's full name",
+                buttonText: "Begin Intake"
+            },
+            nodes: [
+                {
+                    id: "visit_type",
+                    type: "single_choice",
+                    question: "Type of Visit",
+                    description: "Select the primary reason for today's visit",
+                    options: [
+                        { value: "initial", label: "Initial Consultation", next: "injury_type" },
+                        { value: "follow_up", label: "Follow-up Treatment", next: "treatment_response" }
+                    ]
+                },
+                {
+                    id: "injury_type",
+                    type: "single_choice",
+                    question: "Nature of Condition",
+                    description: "What is the primary condition being treated?",
+                    options: [
+                        { value: "acute_injury", label: "Acute Injury (Recent onset)", next: "pain_location" },
+                        { value: "chronic", label: "Chronic Condition (>3 months)", next: "pain_location" },
+                        { value: "work_related", label: "Work-Related Injury", next: "work_injury_details" },
+                        { value: "auto_accident", label: "Auto Accident", next: "accident_details" }
+                    ]
+                },
+                {
+                    id: "work_injury_details",
+                    type: "date_text",
+                    question: "Work Injury Details",
+                    description: "Please provide employer name and date of injury",
+                    dateLabel: "Date of Injury",
+                    textLabel: "Employer Name",
+                    textPlaceholder: "Employer Name",
+                    next: "pain_location"
+                },
+                {
+                    id: "accident_details",
+                    type: "date_text",
+                    question: "Auto Accident Details",
+                    description: "Please provide accident date and claim number (if available)",
+                    dateLabel: "Date of Accident",
+                    textLabel: "Claim Number (if available)",
+                    textPlaceholder: "Claim #",
+                    next: "pain_location"
+                },
+                {
+                    id: "pain_location",
+                    type: "multiple_choice",
+                    question: "Location of Pain/Discomfort",
+                    description: "Select all areas experiencing pain or discomfort",
+                    options: [
+                        { value: "cervical", label: "Neck (Cervical)" },
+                        { value: "thoracic", label: "Mid-Back (Thoracic)" },
+                        { value: "lumbar", label: "Lower Back (Lumbar)" },
+                        { value: "shoulder", label: "Shoulder" },
+                        { value: "hip", label: "Hip" },
+                        { value: "extremity", label: "Arms/Legs (Extremities)" }
+                    ],
+                    next: "pain_level"
+                },
+                {
+                    id: "pain_level",
+                    type: "single_choice",
+                    question: "Pain Intensity Level",
+                    description: "Rate your current pain level (1-10 scale)",
+                    options: [
+                        { value: "mild", label: "Mild (1-3)" },
+                        { value: "moderate", label: "Moderate (4-6)" },
+                        { value: "severe", label: "Severe (7-10)" }
+                    ],
+                    next: "insurance_info"
+                },
+                {
+                    id: "treatment_response",
+                    type: "single_choice",
+                    question: "Treatment Response",
+                    description: "How are you responding to current treatment plan?",
+                    options: [
+                        { value: "improving", label: "Improving/Getting Better" },
+                        { value: "stable", label: "Stable/No Change" },
+                        { value: "worsening", label: "Worsening/Getting Worse" }
+                    ],
+                    next: "current_treatment_frequency"
+                },
+                {
+                    id: "current_treatment_frequency",
+                    type: "single_choice",
+                    question: "Current Treatment Frequency",
+                    description: "How often are you currently receiving treatment?",
+                    options: [
+                        { value: "once_week", label: "Once a week" },
+                        { value: "twice_week", label: "Twice a week" },
+                        { value: "once_month", label: "Once a month" },
+                        { value: "other_frequency", label: "Other frequency", hasTextField: true }
+                    ],
+                    next: "pain_location"
+                },
+                {
+                    id: "insurance_info",
+                    type: "dropdown",
+                    question: "Insurance Carrier",
+                    description: "Select your insurance carrier",
+                    options: [
+                        { value: "bcbs", label: "Blue Cross Blue Shield" },
+                        { value: "united", label: "UnitedHealthcare" },
+                        { value: "aetna", label: "Aetna" },
+                        { value: "cigna", label: "Cigna" },
+                        { value: "humana", label: "Humana" },
+                        { value: "anthem", label: "Anthem" },
+                        { value: "kaiser", label: "Kaiser Permanente" },
+                        { value: "medicare", label: "Medicare" },
+                        { value: "medicaid", label: "Medicaid" },
+                        { value: "tricare", label: "TRICARE" },
+                        { value: "other", label: "Other (Please specify)", hasTextField: true }
+                    ],
+                    next: "summary"
+                }
+            ],
+            billingCodes: {
+                initial: ["99203 - Initial Office Visit", "99204 - Complex Initial Visit"],
+                follow_up: ["99213 - Follow-up Visit", "99214 - Extended Follow-up"],
+                adjustment: {
+                    cervical: "98940 - Chiropractic Adjustive Treatment (Spinal, 1-2 regions)",
+                    thoracic: "98940 - Chiropractic Adjustive Treatment (Spinal, 1-2 regions)",
+                    lumbar: "98941 - Chiropractic Adjustive Treatment (Spinal, 3-4 regions)",
+                    multiple: "98942 - Chiropractic Adjustive Treatment (Spinal, 5 regions)"
+                },
+                therapy: ["97110 - Therapeutic Exercise", "97112 - Neuromuscular Reeducation", "97140 - Manual Therapy"]
+            }
+        };
+
+        let config = JSON.parse(JSON.stringify(defaultConfig));
+        let responses = {};
+        let currentNodeId = null;
+        let patientName = '';
+        let formHistory = JSON.parse(localStorage.getItem('formHistory') || '[]');
+
+        function init() {
+            document.getElementById('configJson').value = JSON.stringify(config, null, 2);
+            updateHeader();
+            updatePatientInfoSection();
+            loadHistory();
+            checkForLoadData();
+            if (document.getElementById('patientNameSection').style.display !== 'none') {
+                document.getElementById('patientNameInput').focus();
+            }
+        }
+
+        function updatePatientInfoSection() {
+            if (config.patientInfo) {
+                document.getElementById('patientInfoLabel').textContent = config.patientInfo.label || 'Patient Information';
+                const input = document.getElementById('patientNameInput');
+                input.placeholder = config.patientInfo.placeholder || 'Enter patient\'s full name';
+                document.getElementById('beginIntakeBtn').textContent = config.patientInfo.buttonText || 'Begin Intake';
+            }
+        }
+
+        function startIntake() {
+            const nameInput = document.getElementById('patientNameInput');
+            patientName = nameInput.value.trim();
+
+            if (!patientName) {
+                alert('Please enter patient name to continue');
+                return;
+            }
+
+            document.getElementById('patientNameSection').style.display = 'none';
+            document.getElementById('mainCard').style.display = 'block';
+            startFlow();
+        }
+
+        function startFlow() {
+            responses = {};
+            currentNodeId = config.nodes[0].id;
+            renderQuestion();
+        }
+
+        function updateHeader() {
+            document.getElementById('headerTitle').textContent = config.title || 'Chiropractic Patient Intake';
+            document.getElementById('headerSubtitle').textContent = config.subtitle || 'Complete the following questions for insurance billing documentation';
+        }
+
+        function renderQuestion() {
+            if (currentNodeId === 'summary') {
+                showSummary();
+                return;
+            }
+
+            const node = config.nodes.find(n => n.id === currentNodeId);
+            if (!node) {
+                console.error('Node not found:', currentNodeId);
+                return;
+            }
+
+            const questionContainer = document.getElementById('questionContainer');
+            const summaryContainer = document.getElementById('summaryContainer');
+
+            questionContainer.style.display = 'block';
+            summaryContainer.classList.remove('active');
+
+            let html = `
+                <div class="question">
+                    <h2>${node.question}</h2>
+                    <p>${node.description}</p>
+            `;
+
+            if (node.type === 'single_choice') {
+                html += '<div class="options">';
+                const currentValue = typeof responses[currentNodeId] === 'object' ? responses[currentNodeId].value : responses[currentNodeId];
+                node.options.forEach(option => {
+                    const selected = currentValue === option.value ? 'selected' : '';
+                    html += `
+                        <button class="option-btn ${selected}" onclick="selectSingleChoice('${option.value}', ${option.hasTextField || false})">
+                            ${option.label}
+                        </button>
+                    `;
+                });
+                html += '</div>';
+
+                // Check if any option has a text field and if it's selected
+                const hasTextFieldOption = node.options.find(opt => opt.hasTextField);
+                const showTextField = hasTextFieldOption && currentValue === hasTextFieldOption.value;
+                const currentText = (typeof responses[currentNodeId] === 'object' && responses[currentNodeId].text) ? responses[currentNodeId].text : '';
+
+                if (hasTextFieldOption) {
+                    html += `
+                        <div id="singleChoiceTextField" style="margin-top: 15px; ${showTextField ? '' : 'display: none;'}">
+                            <input type="text" class="input-field" id="singleChoiceTextInput"
+                                   placeholder="Please specify frequency"
+                                   value="${currentText}"
+                                   onkeypress="if(event.key==='Enter') nextFromSingleChoice('${node.next || getNextNode(node)}')">
+                        </div>
+                    `;
+                }
+
+                html += `
+                    <div class="button-group">
+                        <button class="btn" onclick="nextFromSingleChoice('${node.next || getNextNode(node)}')">Continue</button>
+                    </div>
+                `;
+            } else if (node.type === 'multiple_choice') {
+                html += '<div class="options">';
+                const currentResponses = responses[currentNodeId] || [];
+                node.options.forEach(option => {
+                    const selected = currentResponses.includes(option.value) ? 'selected' : '';
+                    html += `
+                        <button class="option-btn ${selected}" onclick="toggleMultipleChoice('${option.value}')">
+                            ${option.label}
+                        </button>
+                    `;
+                });
+                html += '</div>';
+                html += `
+                    <div class="button-group">
+                        <button class="btn" onclick="nextFromMultiple('${node.next}')">Continue</button>
+                    </div>
+                `;
+            } else if (node.type === 'text') {
+                const currentValue = responses[currentNodeId] || '';
+                html += `
+                    <input type="text" class="input-field" id="textInput"
+                           placeholder="${node.placeholder || ''}"
+                           value="${currentValue}"
+                           onkeypress="if(event.key==='Enter') nextFromText('${node.next}')">
+                    <div class="button-group">
+                        <button class="btn" onclick="nextFromText('${node.next}')">Continue</button>
+                    </div>
+                `;
+            } else if (node.type === 'date_text') {
+                const currentValue = responses[currentNodeId] || { date: '', text: '' };
+                html += `
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600; color: #4a5568;">${node.dateLabel || 'Date'}</label>
+                        <input type="date" class="input-field" id="dateInput"
+                               value="${currentValue.date || ''}"
+                               style="margin-bottom: 15px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600; color: #4a5568;">${node.textLabel || 'Additional Information'}</label>
+                        <input type="text" class="input-field" id="textInput"
+                               placeholder="${node.textPlaceholder || ''}"
+                               value="${currentValue.text || ''}"
+                               onkeypress="if(event.key==='Enter') nextFromDateText('${node.next}')">
+                    </div>
+                    <div class="button-group">
+                        <button class="btn" onclick="nextFromDateText('${node.next}')">Continue</button>
+                    </div>
+                `;
+            } else if (node.type === 'dropdown') {
+                const currentValue = responses[currentNodeId]?.value || '';
+                const currentOther = responses[currentNodeId]?.other || '';
+                html += `
+                    <select class="input-field" id="dropdownInput" onchange="handleDropdownChange()">
+                        <option value="">-- Select Insurance --</option>
+                `;
+                node.options.forEach(option => {
+                    const selected = currentValue === option.value ? 'selected' : '';
+                    html += `<option value="${option.value}" ${selected}>${option.label}</option>`;
+                });
+                html += `</select>`;
+
+                const showOther = currentValue === 'other';
+                html += `
+                    <div id="otherInsuranceField" style="margin-top: 15px; ${showOther ? '' : 'display: none;'}">
+                        <input type="text" class="input-field" id="otherInsuranceInput"
+                               placeholder="Please specify insurance carrier"
+                               value="${currentOther}"
+                               onkeypress="if(event.key==='Enter') nextFromDropdown('${node.next}')">
+                    </div>
+                    <div class="button-group">
+                        <button class="btn" onclick="nextFromDropdown('${node.next}')">Continue</button>
+                    </div>
+                `;
+            }
+
+            if (Object.keys(responses).length > 0) {
+                html += `
+                    <div class="button-group">
+                        <button class="btn btn-secondary" onclick="goBack()">← Back</button>
+                    </div>
+                `;
+            }
+
+            html += '</div>';
+            questionContainer.innerHTML = html;
+
+            if (node.type === 'text') {
+                document.getElementById('textInput').focus();
+            } else if (node.type === 'date_text') {
+                document.getElementById('dateInput').focus();
+            }
+
+            updateProgress();
+        }
+
+        function selectOption(value, next) {
+            responses[currentNodeId] = value;
+            currentNodeId = next;
+            renderQuestion();
+        }
+
+        function selectSingleChoice(value, hasTextField) {
+            if (hasTextField) {
+                responses[currentNodeId] = { value: value, text: '' };
+                renderQuestion();
+            } else {
+                responses[currentNodeId] = value;
+            }
+        }
+
+        function nextFromSingleChoice(next) {
+            const currentResponse = responses[currentNodeId];
+            const textInput = document.getElementById('singleChoiceTextInput');
+
+            // If there's a text input and a response with text field
+            if (textInput && typeof currentResponse === 'object') {
+                responses[currentNodeId].text = textInput.value.trim();
+            }
+
+            currentNodeId = next;
+            renderQuestion();
+        }
+
+        function toggleMultipleChoice(value) {
+            if (!responses[currentNodeId]) {
+                responses[currentNodeId] = [];
+            }
+            const index = responses[currentNodeId].indexOf(value);
+            if (index > -1) {
+                responses[currentNodeId].splice(index, 1);
+            } else {
+                responses[currentNodeId].push(value);
+            }
+            renderQuestion();
+        }
+
+        function nextFromMultiple(next) {
+            currentNodeId = next;
+            renderQuestion();
+        }
+
+        function nextFromText(next) {
+            const input = document.getElementById('textInput');
+            if (input && input.value.trim()) {
+                responses[currentNodeId] = input.value.trim();
+            }
+            currentNodeId = next;
+            renderQuestion();
+        }
+
+        function nextFromDateText(next) {
+            const dateInput = document.getElementById('dateInput');
+            const textInput = document.getElementById('textInput');
+
+            if ((dateInput && dateInput.value) || (textInput && textInput.value.trim())) {
+                responses[currentNodeId] = {
+                    date: dateInput ? dateInput.value : '',
+                    text: textInput ? textInput.value.trim() : ''
+                };
+            }
+            currentNodeId = next;
+            renderQuestion();
+        }
+
+        function nextFromDropdown(next) {
+            const dropdown = document.getElementById('dropdownInput');
+            const otherInput = document.getElementById('otherInsuranceInput');
+
+            if (dropdown && dropdown.value) {
+                responses[currentNodeId] = {
+                    value: dropdown.value,
+                    other: dropdown.value === 'other' && otherInput ? otherInput.value.trim() : ''
+                };
+            }
+            currentNodeId = next;
+            renderQuestion();
+        }
+
+        function handleDropdownChange() {
+            const dropdown = document.getElementById('dropdownInput');
+            const otherField = document.getElementById('otherInsuranceField');
+
+            if (dropdown.value === 'other') {
+                otherField.style.display = 'block';
+                document.getElementById('otherInsuranceInput').focus();
+            } else {
+                otherField.style.display = 'none';
+            }
+        }
+
+        function skipQuestion(next) {
+            currentNodeId = next;
+            renderQuestion();
+        }
+
+        function getNextNode(node) {
+            // Helper function to get the next node when options don't have explicit 'next'
+            if (node.next) return node.next;
+            if (node.options && node.options[0] && node.options[0].next) {
+                return node.options[0].next;
+            }
+            return 'summary';
+        }
+
+        function goBack() {
+            const nodeIds = Object.keys(responses);
+            if (nodeIds.length === 0) return;
+
+            const lastNodeId = nodeIds[nodeIds.length - 1];
+            delete responses[lastNodeId];
+            currentNodeId = lastNodeId;
+            renderQuestion();
+        }
+
+        function updateProgress() {
+            const totalNodes = config.nodes.length;
+            const completedNodes = Object.keys(responses).length;
+            const progress = (completedNodes / totalNodes) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function showSummary() {
+            document.getElementById('questionContainer').style.display = 'none';
+            const summaryContainer = document.getElementById('summaryContainer');
+            summaryContainer.classList.add('active');
+
+            // Display patient name
+            document.getElementById('summaryPatientName').textContent = patientName ? `Patient: ${patientName}` : '';
+
+            // Save to history
+            saveToHistory();
+
+            // Generate narrative summary
+            const narrativeSummary = generateNarrativeSummary();
+            document.getElementById('narrativeSummary').innerHTML = narrativeSummary;
+
+            // Generate treatment plan
+            const treatmentPlan = generateTreatmentPlan();
+            document.getElementById('treatmentPlan').innerHTML = treatmentPlan;
+
+            let summaryHtml = '';
+            const summaryContent = document.getElementById('summaryContent');
+
+            config.nodes.forEach(node => {
+                if (responses[node.id]) {
+                    let responseText = responses[node.id];
+
+                    if (node.type === 'single_choice') {
+                        if (typeof responses[node.id] === 'object' && responses[node.id].value) {
+                            const option = node.options.find(o => o.value === responses[node.id].value);
+                            responseText = option ? option.label : responses[node.id].value;
+                            if (responses[node.id].text) {
+                                responseText += ': ' + responses[node.id].text;
+                            }
+                        } else {
+                            const option = node.options.find(o => o.value === responses[node.id]);
+                            responseText = option ? option.label : responses[node.id];
+                        }
+                    } else if (node.type === 'multiple_choice' && Array.isArray(responses[node.id])) {
+                        responseText = responses[node.id].map(val => {
+                            const option = node.options.find(o => o.value === val);
+                            return option ? option.label : val;
+                        }).join(', ');
+                    } else if (node.type === 'dropdown' && typeof responses[node.id] === 'object') {
+                        const option = node.options.find(o => o.value === responses[node.id].value);
+                        if (responses[node.id].value === 'other' && responses[node.id].other) {
+                            responseText = responses[node.id].other;
+                        } else {
+                            responseText = option ? option.label : responses[node.id].value;
+                        }
+                    } else if (node.type === 'date_text' && typeof responses[node.id] === 'object') {
+                        const parts = [];
+                        if (responses[node.id].date) {
+                            parts.push(`Date: ${responses[node.id].date}`);
+                        }
+                        if (responses[node.id].text) {
+                            parts.push(responses[node.id].text);
+                        }
+                        responseText = parts.join(', ');
+                    }
+
+                    summaryHtml += `
+                        <div class="summary-item">
+                            <strong>${node.question}</strong>
+                            <span>${responseText}</span>
+                        </div>
+                    `;
+                }
+            });
+
+            summaryContent.innerHTML = summaryHtml;
+
+            // Generate billing codes
+            const billingHtml = generateBillingCodes();
+            document.getElementById('billingCodes').innerHTML = billingHtml;
+
+            updateProgress();
+        }
+
+        function generateNarrativeSummary() {
+            let narrative = '<h3>Clinical Summary</h3><div class="narrative-text">';
+
+            // Determine visit type context
+            let visitContext = '';
+            if (responses.visit_type === 'initial') {
+                visitContext = 'presents as a new patient for initial consultation';
+            } else if (responses.visit_type === 'follow_up') {
+                visitContext = 'returns for follow-up treatment';
+            }
+
+            // Build injury/condition context
+            let conditionContext = '';
+            if (responses.injury_type === 'acute_injury') {
+                conditionContext = ' reporting an acute injury with recent onset';
+            } else if (responses.injury_type === 'chronic') {
+                conditionContext = ' with a chronic condition persisting for more than three months';
+            } else if (responses.injury_type === 'work_related') {
+                conditionContext = ' following a work-related injury';
+                if (responses.work_injury_details && typeof responses.work_injury_details === 'object') {
+                    const parts = [];
+                    if (responses.work_injury_details.text) parts.push(responses.work_injury_details.text);
+                    if (responses.work_injury_details.date) parts.push(`on ${responses.work_injury_details.date}`);
+                    if (parts.length > 0) {
+                        conditionContext += ` (${parts.join(' ')})`;
+                    }
+                } else if (typeof responses.work_injury_details === 'string') {
+                    conditionContext += ` (${responses.work_injury_details})`;
+                }
+            } else if (responses.injury_type === 'auto_accident') {
+                conditionContext = ' as a result of an automobile accident';
+                if (responses.accident_details && typeof responses.accident_details === 'object') {
+                    const parts = [];
+                    if (responses.accident_details.date) parts.push(`on ${responses.accident_details.date}`);
+                    if (responses.accident_details.text) parts.push(`Claim: ${responses.accident_details.text}`);
+                    if (parts.length > 0) {
+                        conditionContext += ` (${parts.join(', ')})`;
+                    }
+                } else if (typeof responses.accident_details === 'string') {
+                    conditionContext += ` (${responses.accident_details})`;
+                }
+            }
+
+            // Build pain location context
+            let painContext = '';
+            if (responses.pain_location && Array.isArray(responses.pain_location)) {
+                const locations = responses.pain_location.map(val => {
+                    const node = config.nodes.find(n => n.id === 'pain_location');
+                    const option = node.options.find(o => o.value === val);
+                    return option ? option.label.toLowerCase() : val;
+                });
+
+                if (locations.length === 1) {
+                    painContext = ` The patient reports pain localized to the ${locations[0]}`;
+                } else if (locations.length === 2) {
+                    painContext = ` The patient reports pain in the ${locations[0]} and ${locations[1]}`;
+                } else {
+                    const lastLocation = locations.pop();
+                    painContext = ` The patient reports pain affecting multiple regions including the ${locations.join(', ')}, and ${lastLocation}`;
+                }
+            }
+
+            // Pain level context
+            let painLevelContext = '';
+            if (responses.pain_level === 'mild') {
+                painLevelContext = ', describing the discomfort as mild in intensity (1-3 on a 10-point scale)';
+            } else if (responses.pain_level === 'moderate') {
+                painLevelContext = ', with moderate pain intensity reported (4-6 on a 10-point scale)';
+            } else if (responses.pain_level === 'severe') {
+                painLevelContext = ', indicating severe pain levels (7-10 on a 10-point scale) that significantly impacts daily activities';
+            }
+
+            // Treatment response context (for follow-ups)
+            let responseContext = '';
+            if (responses.treatment_response === 'improving') {
+                responseContext = ' The patient reports positive response to current treatment with notable improvement in symptoms';
+            } else if (responses.treatment_response === 'stable') {
+                responseContext = ' The patient indicates stable condition with no significant change since the last visit';
+            } else if (responses.treatment_response === 'worsening') {
+                responseContext = ' The patient reports worsening symptoms despite ongoing treatment, warranting treatment plan modification';
+            }
+
+            // Current treatment frequency context (for follow-ups)
+            let frequencyContext = '';
+            if (responses.current_treatment_frequency) {
+                if (responses.current_treatment_frequency === 'once_week') {
+                    frequencyContext = ' The patient is currently receiving treatment once weekly';
+                } else if (responses.current_treatment_frequency === 'twice_week') {
+                    frequencyContext = ' The patient is currently receiving treatment twice weekly';
+                } else if (responses.current_treatment_frequency === 'once_month') {
+                    frequencyContext = ' The patient is currently receiving treatment once monthly';
+                } else if (responses.current_treatment_frequency === 'other_frequency') {
+                    frequencyContext = ' The patient has a variable treatment frequency';
+                }
+            }
+
+            // Assemble complete narrative
+            narrative += `Patient ${visitContext}${conditionContext}.${painContext}${painLevelContext}.${responseContext}.${frequencyContext}. `;
+
+            // Insurance information
+            if (responses.insurance_info) {
+                let insuranceText = '';
+                if (typeof responses.insurance_info === 'object') {
+                    if (responses.insurance_info.value === 'other' && responses.insurance_info.other) {
+                        insuranceText = responses.insurance_info.other;
+                    } else {
+                        const node = config.nodes.find(n => n.id === 'insurance_info');
+                        const option = node?.options.find(o => o.value === responses.insurance_info.value);
+                        insuranceText = option ? option.label : responses.insurance_info.value;
+                    }
+                } else {
+                    insuranceText = responses.insurance_info;
+                }
+                if (insuranceText) {
+                    narrative += `Insurance coverage: ${insuranceText}. `;
+                }
+            }
+
+            narrative += 'Treatment plan has been developed based on clinical presentation and patient-specific factors to optimize functional outcomes and pain management.';
+
+            narrative += '</div>';
+            return narrative;
+        }
+
+        function generateTreatmentPlan() {
+            let plan = '<h3>Recommended Treatment Plan</h3>';
+
+            let frequency = '';
+            let duration = '';
+            let modalities = '';
+            let goals = '';
+
+            // Determine frequency based on condition severity and type
+            if (responses.injury_type === 'acute_injury' && responses.pain_level === 'severe') {
+                frequency = 'twice weekly';
+                duration = 'for 4-6 weeks';
+                goals = 'reduce acute pain, restore range of motion, and facilitate healing of injured tissues';
+            } else if (responses.injury_type === 'acute_injury' && responses.pain_level === 'moderate') {
+                frequency = 'twice weekly';
+                duration = 'for 3-4 weeks';
+                goals = 'alleviate pain, improve mobility, and prevent chronic dysfunction';
+            } else if (responses.injury_type === 'acute_injury') {
+                frequency = 'once weekly';
+                duration = 'for 2-4 weeks';
+                goals = 'resolve acute symptoms and restore normal function';
+            } else if (responses.injury_type === 'chronic' && responses.pain_level === 'severe') {
+                frequency = 'twice weekly';
+                duration = 'for 6-8 weeks, then reassess';
+                goals = 'manage chronic pain, improve function, and establish long-term pain management strategies';
+            } else if (responses.injury_type === 'chronic') {
+                frequency = 'once to twice weekly';
+                duration = 'for 6-8 weeks, then reassess';
+                goals = 'reduce pain levels, improve daily functioning, and develop sustainable self-care practices';
+            } else if (responses.injury_type === 'work_related' || responses.injury_type === 'auto_accident') {
+                frequency = 'twice weekly';
+                duration = 'for 4-8 weeks with ongoing assessment';
+                goals = 'facilitate recovery, document progress for insurance purposes, and restore pre-injury function';
+            } else if (responses.visit_type === 'follow_up' && responses.treatment_response === 'improving') {
+                frequency = 'once weekly';
+                duration = 'for 2-4 weeks';
+                goals = 'continue current progress and transition toward maintenance care';
+            } else if (responses.visit_type === 'follow_up' && responses.treatment_response === 'worsening') {
+                frequency = 'twice weekly';
+                duration = 'for 3-4 weeks with treatment plan modification';
+                goals = 'address deteriorating condition and implement alternative therapeutic approaches';
+            } else {
+                frequency = 'once weekly';
+                duration = 'for 4 weeks';
+                goals = 'improve symptoms and restore optimal function';
+            }
+
+            // Determine treatment modalities
+            const modalitiesList = [];
+            modalitiesList.push('spinal manipulation and adjustments');
+
+            if (responses.pain_level === 'moderate' || responses.pain_level === 'severe') {
+                modalitiesList.push('therapeutic exercise');
+                modalitiesList.push('manual therapy techniques');
+            }
+
+            if (responses.pain_location && Array.isArray(responses.pain_location)) {
+                if (responses.pain_location.length >= 3) {
+                    modalitiesList.push('myofascial release');
+                }
+                if (responses.pain_location.includes('extremity')) {
+                    modalitiesList.push('extremity adjustments');
+                }
+            }
+
+            if (responses.injury_type === 'chronic') {
+                modalitiesList.push('neuromuscular reeducation');
+                modalitiesList.push('home exercise program');
+            }
+
+            modalities = modalitiesList.join(', ');
+
+            plan += `<div class="plan-text">Based on the clinical presentation, the recommended treatment protocol consists of ${modalities}. The patient should be scheduled for treatments ${frequency} ${duration}. Primary therapeutic goals include: ${goals}. Progress will be monitored through regular reassessment of pain levels, range of motion, and functional capacity. The treatment plan will be adjusted as needed based on patient response and clinical outcomes. Patient education regarding posture, ergonomics, and activity modification will be incorporated throughout the treatment course to promote long-term wellness and prevent future injury.</div>`;
+
+            plan += `<div class="frequency-highlight">Recommended Visit Frequency: ${frequency.charAt(0).toUpperCase() + frequency.slice(1)} ${duration}</div>`;
+
+            return plan;
+        }
+
+        function generateBillingCodes() {
+            let html = '<h3>Suggested Billing Codes</h3>';
+            const codes = [];
+
+            // Visit type codes
+            if (responses.visit_type === 'initial') {
+                codes.push(...config.billingCodes.initial);
+            } else if (responses.visit_type === 'follow_up') {
+                codes.push(...config.billingCodes.follow_up);
+            }
+
+            // Adjustment codes based on pain location
+            if (responses.pain_location) {
+                const locations = Array.isArray(responses.pain_location) ?
+                    responses.pain_location : [responses.pain_location];
+
+                if (locations.length >= 5) {
+                    codes.push(config.billingCodes.adjustment.multiple);
+                } else if (locations.length >= 3) {
+                    codes.push(config.billingCodes.adjustment.lumbar);
+                } else {
+                    codes.push(config.billingCodes.adjustment.cervical);
+                }
+            }
+
+            // Add therapy codes for moderate to severe pain
+            if (responses.pain_level === 'moderate' || responses.pain_level === 'severe') {
+                codes.push(...config.billingCodes.therapy);
+            }
+
+            codes.forEach(code => {
+                html += `<div class="code-item">${code}</div>`;
+            });
+
+            return html;
+        }
+
+        function exportSummary(format) {
+            toggleExportMenu(); // Close the dropdown
+
+            if (format === 'json') {
+                const exportData = {
+                    patientName: patientName,
+                    timestamp: new Date().toISOString(),
+                    responses: responses,
+                    summary: {},
+                    narrative: extractTextFromHTML(generateNarrativeSummary()),
+                    treatmentPlan: extractTextFromHTML(generateTreatmentPlan())
+                };
+
+                config.nodes.forEach(node => {
+                    if (responses[node.id]) {
+                        exportData.summary[node.id] = {
+                            question: node.question,
+                            response: responses[node.id]
+                        };
+                    }
+                });
+
+                const dataStr = JSON.stringify(exportData, null, 2);
+                const dataBlob = new Blob([dataStr], { type: 'application/json' });
+                const url = URL.createObjectURL(dataBlob);
+                const link = document.createElement('a');
+                link.href = url;
+                const fileName = patientName ? `${patientName.replace(/\s/g, '_')}-${Date.now()}.json` : `patient-intake-${Date.now()}.json`;
+                link.download = fileName;
+                link.click();
+            } else if (format === 'pdf') {
+                window.print();
+            }
+        }
+
+        function extractTextFromHTML(html) {
+            const temp = document.createElement('div');
+            temp.innerHTML = html;
+            return temp.textContent || temp.innerText || '';
+        }
+
+        function restart() {
+            if (confirm('Are you sure you want to start over? All responses will be cleared.')) {
+                document.getElementById('patientNameSection').style.display = 'block';
+                document.getElementById('mainCard').style.display = 'none';
+                document.getElementById('patientNameInput').value = '';
+                document.getElementById('patientNameInput').focus();
+                patientName = '';
+                startFlow();
+            }
+        }
+
+        function toggleConfig() {
+            const panel = document.getElementById('configPanel');
+            const historyPanel = document.getElementById('historyPanel');
+
+            if (panel.style.display === 'none') {
+                panel.style.display = 'block';
+                historyPanel.style.display = 'none';
+            } else {
+                panel.style.display = 'none';
+            }
+        }
+
+        function toggleHistory() {
+            const panel = document.getElementById('historyPanel');
+            const configPanel = document.getElementById('configPanel');
+
+            if (panel.style.display === 'none') {
+                panel.style.display = 'block';
+                configPanel.style.display = 'none';
+                loadHistory();
+            } else {
+                panel.style.display = 'none';
+            }
+        }
+
+        function toggleResponses() {
+            const content = document.getElementById('responsesContent');
+            const arrow = document.getElementById('responsesArrow');
+            content.classList.toggle('open');
+            arrow.classList.toggle('open');
+        }
+
+        function toggleExportMenu() {
+            document.getElementById('exportDropdown').classList.toggle('show');
+        }
+
+        // Close dropdown if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.btn')) {
+                const dropdowns = document.getElementsByClassName('dropdown-content');
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        function saveToHistory() {
+            const historyItem = {
+                patientName: patientName,
+                timestamp: new Date().toISOString(),
+                responses: responses
+            };
+
+            formHistory.unshift(historyItem);
+
+            // Keep only last 10 entries
+            if (formHistory.length > 10) {
+                formHistory = formHistory.slice(0, 10);
+            }
+
+            localStorage.setItem('formHistory', JSON.stringify(formHistory));
+        }
+
+        function loadHistory() {
+            const historyContent = document.getElementById('historyContent');
+
+            if (formHistory.length === 0) {
+                historyContent.innerHTML = '<p style="color: #718096;">No recent forms found.</p>';
+                return;
+            }
+
+            let html = '<div style="max-height: 400px; overflow-y: auto;">';
+            formHistory.forEach((item, index) => {
+                const date = new Date(item.timestamp);
+                const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+                html += `
+                    <div style="background: white; padding: 12px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #e2e8f0;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong style="color: #2d3748;">${item.patientName || 'Unknown Patient'}</strong>
+                                <br>
+                                <small style="color: #718096;">${formattedDate}</small>
+                            </div>
+                            <button class="btn btn-secondary" style="font-size: 11px; padding: 6px 12px;" onclick="loadFromHistory(${index})">Load</button>
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            historyContent.innerHTML = html;
+        }
+
+        function loadFromHistory(index) {
+            const item = formHistory[index];
+
+            // Encode the form data to pass to new tab
+            const formData = {
+                patientName: item.patientName,
+                responses: item.responses,
+                timestamp: item.timestamp
+            };
+
+            // Store temporarily for the new tab to pick up
+            sessionStorage.setItem('loadFormData', JSON.stringify(formData));
+
+            // Open in new tab
+            window.open(window.location.href, '_blank');
+        }
+
+        // Check for form data to load on page load
+        function checkForLoadData() {
+            const loadData = sessionStorage.getItem('loadFormData');
+            if (loadData) {
+                sessionStorage.removeItem('loadFormData');
+                const formData = JSON.parse(loadData);
+
+                patientName = formData.patientName;
+                responses = formData.responses;
+
+                document.getElementById('patientNameInput').value = patientName;
+                document.getElementById('patientNameSection').style.display = 'none';
+                document.getElementById('mainCard').style.display = 'block';
+
+                currentNodeId = 'summary';
+                renderQuestion();
+            }
+        }
+
+        function loadConfig() {
+            try {
+                const jsonText = document.getElementById('configJson').value;
+                const newConfig = JSON.parse(jsonText);
+                config = newConfig;
+                updateHeader();
+                updatePatientInfoSection();
+                alert('Configuration loaded successfully!');
+
+                // Reset to patient info page if config changes
+                document.getElementById('patientNameSection').style.display = 'block';
+                document.getElementById('mainCard').style.display = 'none';
+                document.getElementById('patientNameInput').value = '';
+                patientName = '';
+            } catch (e) {
+                alert('Invalid JSON configuration: ' + e.message);
+            }
+        }
+
+        function resetConfig() {
+            if (confirm('Reset to default configuration?')) {
+                config = JSON.parse(JSON.stringify(defaultConfig));
+                document.getElementById('configJson').value = JSON.stringify(config, null, 2);
+                updateHeader();
+                updatePatientInfoSection();
+
+                // Reset to patient info page
+                document.getElementById('patientNameSection').style.display = 'block';
+                document.getElementById('mainCard').style.display = 'none';
+                document.getElementById('patientNameInput').value = '';
+                patientName = '';
+            }
+        }
+
+        function exportConfig() {
+            const dataStr = JSON.stringify(config, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'decision-tree-config.json';
+            link.click();
+        }
+
+        function showShareInstructions() {
+            const instructions = document.getElementById('shareInstructions');
+            instructions.classList.toggle('hidden');
+        }
+
+        // Initialize on page load
+        init();
+    </script>
+</body>
+</html>
