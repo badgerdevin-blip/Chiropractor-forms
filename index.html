@@ -12,8 +12,8 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #2F5D50 0%, #1a3a30 100%);
+            font-family: Arial, Helvetica, sans-serif;
+            background: #8B7969;
             min-height: 100vh;
             padding: 20px;
         }
@@ -24,27 +24,31 @@
         }
 
         .header {
-            background: #FAF6EE;
+            background: white;
             padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0;
+            box-shadow: none;
             margin-bottom: 20px;
             text-align: center;
         }
 
         .header h1 {
-            color: #2F5D50;
+            color: #4A8C8C;
             margin-bottom: 10px;
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .header p {
-            color: #5a7068;
+            color: #404040;
+            font-weight: normal;
         }
 
         .card {
-            background: #FAF6EE;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-radius: 0;
+            box-shadow: none;
             padding: 30px;
             margin-bottom: 20px;
         }
@@ -52,7 +56,7 @@
         .progress-bar {
             background: #e2e8f0;
             height: 8px;
-            border-radius: 4px;
+            border-radius: 0;
             overflow: hidden;
             margin-bottom: 30px;
         }
@@ -68,13 +72,14 @@
         }
 
         .question h2 {
-            color: #2F5D50;
+            color: #4A8C8C;
             font-size: 20px;
             margin-bottom: 15px;
+            font-weight: normal;
         }
 
         .question p {
-            color: #5a7068;
+            color: #404040;
             margin-bottom: 20px;
             font-size: 14px;
         }
@@ -86,68 +91,72 @@
 
         .option-btn {
             background: white;
-            border: 2px solid #d4cfc4;
+            border: 2px solid #D4C9BE;
             padding: 16px 20px;
-            border-radius: 8px;
+            border-radius: 0;
             cursor: pointer;
             transition: all 0.2s;
             text-align: left;
             font-size: 16px;
-            color: #2F5D50;
+            color: #404040;
         }
 
         .option-btn:hover {
-            border-color: #2F5D50;
-            background: #f5f0e8;
-            transform: translateY(-2px);
+            border-color: #4A8C8C;
+            background: #f7f7f7;
+            transform: none;
         }
 
         .option-btn.selected {
-            background: #2F5D50;
-            border-color: #2F5D50;
-            color: #FAF6EE;
+            background: #4A8C8C;
+            border-color: #4A8C8C;
+            color: white;
         }
 
         .input-field {
             width: 100%;
             padding: 12px 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
+            border: 2px solid #D4C9BE;
+            border-radius: 0;
             font-size: 16px;
             transition: border-color 0.2s;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         .input-field:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #4A8C8C;
         }
 
         .btn {
-            background: #D97652;
+            background: #8B7969;
             color: white;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
+            border: 2px solid white;
+            padding: 12px 28px;
+            border-radius: 0;
+            font-size: 14px;
+            font-weight: normal;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: background 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(217, 118, 82, 0.3);
-            background: #c26545;
+            transform: none;
+            box-shadow: none;
+            background: #7A6A5A;
         }
 
         .btn-secondary {
             background: white;
-            color: #2F5D50;
-            border: 2px solid #2F5D50;
+            color: #8B7969;
+            border: 2px solid #8B7969;
         }
 
         .btn-secondary:hover {
-            background: #f5f0e8;
+            background: #f7f7f7;
         }
 
         .button-group {
@@ -167,25 +176,25 @@
         .summary-item {
             padding: 16px;
             background: white;
-            border-left: 4px solid #2F5D50;
+            border-left: 4px solid #4A8C8C;
             margin-bottom: 12px;
-            border-radius: 4px;
+            border-radius: 0;
         }
 
         .summary-item strong {
-            color: #2F5D50;
+            color: #4A8C8C;
             display: block;
             margin-bottom: 4px;
         }
 
         .summary-item span {
-            color: #5a7068;
+            color: #404040;
         }
 
         .collapsible-section {
             background: white;
-            border: 2px solid #d4cfc4;
-            border-radius: 8px;
+            border: 2px solid #D4C9BE;
+            border-radius: 0;
             padding: 16px;
             margin-top: 20px;
         }
@@ -196,12 +205,12 @@
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
-            color: #2F5D50;
+            color: #4A8C8C;
             user-select: none;
         }
 
         .collapsible-header:hover {
-            color: #D97652;
+            color: #0055cc;
         }
 
         .collapsible-arrow {
@@ -225,15 +234,15 @@
         }
 
         .patient-name-section {
-            background: #FAF6EE;
-            border: 2px solid #d4cfc4;
-            border-radius: 8px;
+            background: white;
+            border: 2px solid #D4C9BE;
+            border-radius: 0;
             padding: 20px;
             margin-bottom: 20px;
         }
 
         .patient-name-section h3 {
-            color: #2F5D50;
+            color: #4A8C8C;
             margin-bottom: 10px;
             font-size: 18px;
         }
@@ -257,7 +266,7 @@
             background-color: white;
             min-width: 180px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            border-radius: 8px;
+            border-radius: 0;
             z-index: 1;
             overflow: hidden;
         }
@@ -292,15 +301,15 @@
         }
 
         .billing-codes {
-            background: #fff8f3;
-            border: 2px solid #D97652;
-            border-radius: 8px;
+            background: #f7f7f7;
+            border: 2px solid #D4C9BE;
+            border-radius: 0;
             padding: 20px;
             margin-top: 20px;
         }
 
         .billing-codes h3 {
-            color: #D97652;
+            color: #4A8C8C;
             margin-bottom: 12px;
         }
 
@@ -308,21 +317,21 @@
             background: white;
             padding: 12px;
             margin-bottom: 8px;
-            border-radius: 4px;
+            border-radius: 0;
             font-family: 'Courier New', monospace;
             color: #000000;
         }
 
         .narrative-summary {
             background: white;
-            border: 2px solid #2F5D50;
-            border-radius: 8px;
+            border: 2px solid #D4C9BE;
+            border-radius: 0;
             padding: 20px;
             margin-bottom: 20px;
         }
 
         .narrative-summary h3 {
-            color: #2F5D50;
+            color: #4A8C8C;
             margin-bottom: 12px;
         }
 
@@ -334,15 +343,15 @@
         }
 
         .treatment-plan {
-            background: #fff8f3;
-            border: 2px solid #D97652;
-            border-radius: 8px;
+            background: #f7f7f7;
+            border: 2px solid #D4C9BE;
+            border-radius: 0;
             padding: 20px;
             margin-top: 20px;
         }
 
         .treatment-plan h3 {
-            color: #D97652;
+            color: #4A8C8C;
             margin-bottom: 12px;
         }
 
@@ -355,12 +364,12 @@
 
         .frequency-highlight {
             background: white;
-            border-left: 4px solid #D97652;
+            border-left: 4px solid #003399;
             padding: 12px 16px;
             margin-top: 12px;
-            border-radius: 4px;
+            border-radius: 0;
             font-weight: 600;
-            color: #D97652;
+            color: #4A8C8C;
         }
 
         .config-panel {
@@ -368,7 +377,7 @@
             border: 1px solid #e2e8f0;
             color: #2d3748;
             padding: 15px;
-            border-radius: 6px;
+            border-radius: 0;
             margin-top: 30px;
             margin-bottom: 20px;
             opacity: 0.7;
@@ -388,7 +397,7 @@
             width: 100%;
             min-height: 200px;
             padding: 12px;
-            border-radius: 8px;
+            border-radius: 0;
             font-family: 'Courier New', monospace;
             font-size: 12px;
             border: 1px solid #cbd5e0;
@@ -404,14 +413,187 @@
 
         @media print {
             body {
-                background: white;
+                background: white !important;
+                padding: 0 !important;
+                margin: 0 !important;
             }
+
+            .container {
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 10px !important;
+            }
+
+            /* Hide the header completely for print */
+            .header {
+                display: none !important;
+            }
+
             .card {
-                box-shadow: none;
-                border: 1px solid #e2e8f0;
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                page-break-inside: avoid !important;
             }
-            .btn, .config-panel {
-                display: none;
+
+            /* Hide ALL interactive and non-summary elements */
+            .btn, .btn-secondary, .config-panel, .dropdown-menu,
+            .export-actions, .button-group, .bottom-actions,
+            .collapsible-arrow, #historyPanel, .patient-name-section,
+            #questionContainer, #patientNameSection {
+                display: none !important;
+                height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            /* Show only the summary content */
+            #summaryContainer, #treatmentFormContainer {
+                display: block !important;
+            }
+
+            /* Make sure mainCard doesn't add extra space */
+            #mainCard {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            /* Format summary sections */
+            .narrative-summary, .treatment-plan, .billing-codes {
+                background: white !important;
+                border: 1px solid #333 !important;
+                padding: 12px !important;
+                margin-bottom: 12px !important;
+                page-break-inside: avoid !important;
+            }
+
+            .narrative-summary h3, .treatment-plan h3, .billing-codes h3 {
+                font-size: 14px !important;
+                margin-bottom: 8px !important;
+                color: #000 !important;
+                border-bottom: 1px solid #333 !important;
+                padding-bottom: 4px !important;
+            }
+
+            .narrative-text, .plan-text {
+                font-size: 11px !important;
+                line-height: 1.4 !important;
+                color: #000 !important;
+            }
+
+            .frequency-highlight {
+                background: #f0f0f0 !important;
+                border-left: 2px solid #333 !important;
+                padding: 8px !important;
+                margin-top: 8px !important;
+                font-size: 11px !important;
+                color: #000 !important;
+            }
+
+            .code-item {
+                background: #f9f9f9 !important;
+                padding: 6px !important;
+                margin-bottom: 4px !important;
+                font-size: 10px !important;
+                border: 1px solid #ddd !important;
+                color: #000 !important;
+            }
+
+            /* Patient info */
+            #summaryPatientName, #treatmentPatientName {
+                font-size: 16px !important;
+                margin-bottom: 3px !important;
+                color: #000 !important;
+            }
+
+            #summaryDate, #treatmentDate {
+                font-size: 10px !important;
+                margin-bottom: 10px !important;
+                color: #000 !important;
+            }
+
+            /* Collapsible sections - show content, hide toggle */
+            .collapsible-section {
+                border: 1px solid #333 !important;
+                margin-top: 12px !important;
+                background: white !important;
+                padding: 12px !important;
+                page-break-inside: avoid !important;
+            }
+
+            .collapsible-header {
+                font-size: 14px !important;
+                font-weight: bold !important;
+                margin-bottom: 8px !important;
+                color: #000 !important;
+                border-bottom: 1px solid #333 !important;
+                padding-bottom: 4px !important;
+            }
+
+            .collapsible-content {
+                display: block !important;
+                max-height: none !important;
+            }
+
+            .summary-item {
+                background: white !important;
+                border-left: 2px solid #333 !important;
+                margin-bottom: 8px !important;
+                padding: 8px !important;
+                page-break-inside: avoid !important;
+            }
+
+            .summary-item strong {
+                font-size: 11px !important;
+                color: #000 !important;
+            }
+
+            .summary-item span {
+                font-size: 10px !important;
+                color: #000 !important;
+            }
+
+            /* Treatment documentation */
+            #treatmentQuestionContainer {
+                font-size: 11px !important;
+            }
+
+            #treatmentQuestionContainer h2 {
+                font-size: 18px !important;
+                margin-bottom: 10px !important;
+                color: #000 !important;
+                border-bottom: 2px solid #333 !important;
+                padding-bottom: 5px !important;
+                page-break-after: avoid !important;
+            }
+
+            #treatmentQuestionContainer h3 {
+                font-size: 14px !important;
+                margin-bottom: 6px !important;
+                margin-top: 10px !important;
+                color: #000 !important;
+                page-break-after: avoid !important;
+            }
+
+            /* Card grid layout for detailed responses */
+            #treatmentQuestionContainer > div {
+                page-break-inside: avoid !important;
+            }
+
+            /* Force page breaks between major sections */
+            .narrative-summary:first-of-type {
+                page-break-before: auto !important;
+            }
+
+            /* Avoid orphaned headers */
+            h2, h3 {
+                page-break-after: avoid !important;
+            }
+
+            /* Keep related content together */
+            ul, ol {
+                page-break-inside: avoid !important;
             }
         }
     </style>
@@ -439,8 +621,8 @@
             <div class="summary" id="summaryContainer">
                 <div style="margin-bottom: 20px;">
                     <h2 style="margin: 0;">Patient Summary for Insurance Billing</h2>
-                    <h3 id="summaryPatientName" style="color: #2F5D50; margin: 5px 0;"></h3>
-                    <p id="summaryDate" style="color: #5a7068; margin: 0; font-size: 14px;"></p>
+                    <h3 id="summaryPatientName" style="color: #4A8C8C; margin: 5px 0;"></h3>
+                    <p id="summaryDate" style="color: #404040; margin: 0; font-size: 14px;"></p>
                 </div>
 
                 <div class="narrative-summary" id="narrativeSummary"></div>
@@ -470,6 +652,7 @@
                     <div class="dropdown-menu">
                         <button class="btn" onclick="toggleExportMenu()">Export ▼</button>
                         <div class="dropdown-content" id="exportDropdown">
+                            <button class="dropdown-item" onclick="exportSummary('copy')">📋 Copy Full Page</button>
                             <button class="dropdown-item" onclick="exportSummary('json')">Download as JSON</button>
                             <button class="dropdown-item" onclick="exportSummary('pdf')">Print/Save as PDF</button>
                         </div>
@@ -479,11 +662,11 @@
 
             <div class="summary" id="treatmentFormContainer" style="display: none;">
                 <h2>Treatment Documentation</h2>
-                <h3 id="treatmentPatientName" style="color: #2F5D50; margin-bottom: 5px;"></h3>
-                <p id="treatmentDate" style="color: #5a7068; margin-bottom: 20px; font-size: 14px;"></p>
+                <h3 id="treatmentPatientName" style="color: #4A8C8C; margin-bottom: 5px;"></h3>
+                <p id="treatmentDate" style="color: #404040; margin-bottom: 20px; font-size: 14px;"></p>
 
-                <div style="background: white; border: 2px solid #2F5D50; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
-                    <strong style="color: #2F5D50;">Previous Assessment Summary:</strong>
+                <div style="background: white; border: 2px solid #2F5D50; border-radius: 0; padding: 15px; margin-bottom: 20px;">
+                    <strong style="color: #4A8C8C;">Previous Assessment Summary:</strong>
                     <div id="carryOverInfo" style="margin-top: 10px; font-size: 14px; color: #000000;"></div>
                 </div>
 
@@ -492,8 +675,9 @@
                 <div class="export-actions" style="margin-top: 30px;">
                     <button class="btn btn-secondary" onclick="goBackTreatment()">← Back</button>
                     <div class="dropdown-menu">
-                        <button class="btn" onclick="toggleExportMenu()">Export ▼</button>
+                        <button class="btn" onclick="toggleExportMenu('exportDropdown2')">Export ▼</button>
                         <div class="dropdown-content" id="exportDropdown2">
+                            <button class="dropdown-item" onclick="exportTreatmentDoc('copy')">📋 Copy Full Page</button>
                             <button class="dropdown-item" onclick="exportTreatmentDoc('json')">Download as JSON</button>
                             <button class="dropdown-item" onclick="exportTreatmentDoc('pdf')">Print/Save as PDF</button>
                         </div>
@@ -830,6 +1014,12 @@
         let currentNodeId = null;
         let patientName = '';
         let formHistory = JSON.parse(localStorage.getItem('formHistory') || '[]');
+        let treatmentResponses = {};
+        let treatmentCurrentNodeId = null;
+        let serviceDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        let loadedFromHistory = false;
+        let originalTimestamp = null;
+        let hasUserMadeChanges = false;
 
         function init() {
             updateHeader();
@@ -1147,6 +1337,8 @@
         }
 
         function showSummary() {
+            console.log('showSummary called, treatmentResponses:', Object.keys(treatmentResponses).length);
+
             document.getElementById('questionContainer').style.display = 'none';
             const summaryContainer = document.getElementById('summaryContainer');
             summaryContainer.classList.add('active');
@@ -1158,7 +1350,7 @@
             // Update treatment documentation button text based on progress
             updateTreatmentButtonText();
 
-            // Save to history
+            // Save to history (will preserve treatment data if it exists)
             saveToHistory();
 
             // Generate narrative summary
@@ -1526,6 +1718,18 @@
                 link.click();
             } else if (format === 'pdf') {
                 window.print();
+            } else if (format === 'copy') {
+                const container = document.getElementById('summaryContainer');
+                if (container) {
+                    const textToCopy = extractTextFromHTML(container.innerHTML);
+
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        alert('Full clinical summary copied to clipboard!');
+                    }).catch(err => {
+                        console.error('Failed to copy:', err);
+                        alert('Failed to copy to clipboard. Please try again.');
+                    });
+                }
             }
         }
 
@@ -1564,8 +1768,8 @@
             arrow.classList.toggle('open');
         }
 
-        function toggleExportMenu() {
-            document.getElementById('exportDropdown').classList.toggle('show');
+        function toggleExportMenu(dropdownId = 'exportDropdown') {
+            document.getElementById(dropdownId).classList.toggle('show');
         }
 
         // Close dropdown if clicked outside
@@ -1582,13 +1786,69 @@
         }
 
         function saveToHistory() {
+            console.log('saveToHistory called', {
+                patientName,
+                hasResponses: Object.keys(responses).length,
+                hasTreatment: Object.keys(treatmentResponses).length,
+                loadedFromHistory,
+                originalTimestamp
+            });
+
+            // Reload from localStorage to get the absolute latest state
+            formHistory = JSON.parse(localStorage.getItem('formHistory') || '[]');
+
+            // Check if entry already exists (by patient name and recent timestamp)
+            let existingIndex = -1;
+            if (loadedFromHistory && originalTimestamp) {
+                // Find by exact timestamp if loaded from history
+                existingIndex = formHistory.findIndex(item =>
+                    item.timestamp === originalTimestamp
+                );
+            } else {
+                // Find by patient name and same day
+                const today = new Date().toDateString();
+                existingIndex = formHistory.findIndex(item =>
+                    item.patientName === patientName &&
+                    new Date(item.timestamp).toDateString() === today
+                );
+            }
+
+            console.log('Found existing entry at index:', existingIndex);
+
+            // Preserve existing treatment data if it exists
+            let existingTreatment = {};
+            if (existingIndex >= 0 && formHistory[existingIndex].treatmentResponses) {
+                existingTreatment = formHistory[existingIndex].treatmentResponses;
+                console.log('Preserving existing treatment data:', Object.keys(existingTreatment).length);
+            }
+
+            // Merge: keep existing treatment if current is empty, otherwise use current
+            const finalTreatment = Object.keys(treatmentResponses).length > 0
+                ? treatmentResponses
+                : existingTreatment;
+
             const historyItem = {
                 patientName: patientName,
-                timestamp: new Date().toISOString(),
-                responses: responses
+                timestamp: (existingIndex >= 0) ? formHistory[existingIndex].timestamp : new Date().toISOString(),
+                responses: responses,
+                treatmentResponses: finalTreatment,
+                serviceDate: serviceDate
             };
 
-            formHistory.unshift(historyItem);
+            console.log('Saving history item:', {
+                ...historyItem,
+                treatmentCount: Object.keys(historyItem.treatmentResponses).length
+            });
+
+            if (existingIndex >= 0) {
+                // Update existing entry in place, preserving its position
+                formHistory[existingIndex] = historyItem;
+                console.log('Updated existing entry');
+            } else {
+                // New entry, add to top
+                formHistory.unshift(historyItem);
+                console.log('Added new entry to history');
+            }
 
             // Keep only last 10 entries
             if (formHistory.length > 10) {
@@ -1596,9 +1856,19 @@
             }
 
             localStorage.setItem('formHistory', JSON.stringify(formHistory));
+            console.log('Saved to localStorage, total entries:', formHistory.length);
         }
 
         function loadHistory() {
+            // Reload from localStorage to get latest state
+            formHistory = JSON.parse(localStorage.getItem('formHistory') || '[]');
+
+            console.log('loadHistory - Full history:', formHistory.map(item => ({
+                name: item.patientName,
+                hasTreatment: item.treatmentResponses ? Object.keys(item.treatmentResponses).length : 0,
+                timestamp: item.timestamp
+            })));
+
             const historyContent = document.getElementById('historyContent');
 
             if (formHistory.length === 0) {
@@ -1610,12 +1880,26 @@
             formHistory.forEach((item, index) => {
                 const date = new Date(item.timestamp);
                 const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+                const hasTreatment = item.treatmentResponses && Object.keys(item.treatmentResponses).length > 0;
+
+                console.log(`History item ${index}:`, {
+                    name: item.patientName,
+                    hasTreatment,
+                    treatmentKeys: item.treatmentResponses ? Object.keys(item.treatmentResponses).length : 0
+                });
+
+                const statusBadge = hasTreatment
+                    ? '<span style="background: #4A8C8C; color: white; padding: 2px 8px; border-radius: 0; font-size: 10px; margin-left: 8px;">COMPLETE</span>'
+                    : '<span style="background: #D4C9BE; color: #404040; padding: 2px 8px; border-radius: 0; font-size: 10px; margin-left: 8px;">ASSESSMENT ONLY</span>';
+
                 html += `
-                    <div style="background: white; padding: 12px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #e2e8f0;">
+                    <div style="background: white; padding: 12px; margin-bottom: 10px; border-radius: 0; border: 1px solid #e2e8f0;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
-                                <strong style="color: #2d3748;">${item.patientName || 'Unknown Patient'}</strong>
-                                <br>
+                                <div>
+                                    <strong style="color: #2d3748;">${item.patientName || 'Unknown Patient'}</strong>
+                                    ${statusBadge}
+                                </div>
                                 <small style="color: #718096;">${formattedDate}</small>
                             </div>
                             <button class="btn btn-secondary" style="font-size: 11px; padding: 6px 12px;" onclick="loadFromHistory(${index})">Load</button>
@@ -1634,6 +1918,8 @@
             const formData = {
                 patientName: item.patientName,
                 responses: item.responses,
+                treatmentResponses: item.treatmentResponses || {},
+                serviceDate: item.serviceDate || new Date().toISOString().split('T')[0],
                 timestamp: item.timestamp
             };
 
@@ -1653,19 +1939,82 @@
 
                 patientName = formData.patientName;
                 responses = formData.responses;
+                treatmentResponses = formData.treatmentResponses || {};
+                serviceDate = formData.serviceDate || new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                loadedFromHistory = true;
+                originalTimestamp = formData.timestamp;
+
+                console.log('Loading form data:', {
+                    patientName,
+                    hasResponses: Object.keys(responses).length,
+                    hasTreatment: Object.keys(treatmentResponses).length,
+                    serviceDate,
+                    loadedFromHistory: true
+                });
 
                 document.getElementById('patientNameInput').value = patientName;
                 document.getElementById('patientNameSection').style.display = 'none';
                 document.getElementById('mainCard').style.display = 'block';
 
-                currentNodeId = 'summary';
-                renderQuestion();
+                // If treatment responses exist, show the treatment summary
+                if (Object.keys(treatmentResponses).length > 0) {
+                    console.log('Has treatment data, showing treatment summary');
+
+                    // First populate the summary section (needed for the treatment summary to reference)
+                    document.getElementById('summaryPatientName').textContent = patientName;
+                    document.getElementById('summaryDate').textContent = new Date().toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+
+                    // Generate the summaries
+                    document.getElementById('narrativeSummary').innerHTML = generateNarrativeSummary();
+                    document.getElementById('treatmentPlan').innerHTML = generateTreatmentPlan();
+
+                    // Update patient info in treatment section
+                    document.getElementById('treatmentPatientName').textContent = patientName ? `Patient: ${patientName}` : '';
+                    document.getElementById('treatmentDate').textContent = `Date of Service: ${serviceDate}`;
+
+                    // Populate carry-over info
+                    let carryOverHtml = '<ul style="margin: 0; padding-left: 20px;">';
+                    if (responses.injury_type) {
+                        const injuryNode = config.nodes.find(n => n.id === 'injury_type');
+                        const injuryOption = injuryNode ? injuryNode.options.find(o => o.value === responses.injury_type) : null;
+                        if (injuryOption) {
+                            carryOverHtml += `<li><strong>Condition:</strong> ${injuryOption.label}</li>`;
+                        }
+                    }
+                    if (responses.pain_location && Array.isArray(responses.pain_location)) {
+                        const painNode = config.nodes.find(n => n.id === 'pain_location');
+                        const locations = responses.pain_location.map(val => {
+                            const option = painNode ? painNode.options.find(o => o.value === val) : null;
+                            return option ? option.label : val;
+                        }).join(', ');
+                        carryOverHtml += `<li><strong>Pain Location:</strong> ${locations}</li>`;
+                    }
+                    if (responses.pain_level) {
+                        carryOverHtml += `<li><strong>Pain Level:</strong> ${responses.pain_level}/10</li>`;
+                    }
+                    carryOverHtml += '</ul>';
+                    document.getElementById('carryOverInfo').innerHTML = carryOverHtml;
+
+                    document.getElementById('summaryContainer').style.display = 'none';
+                    document.getElementById('treatmentFormContainer').style.display = 'block';
+
+                    try {
+                        showTreatmentSummary();
+                        console.log('Treatment summary displayed successfully');
+                    } catch (error) {
+                        console.error('Error showing treatment summary:', error);
+                    }
+                } else {
+                    console.log('No treatment data, showing clinical summary');
+                    currentNodeId = 'summary';
+                    renderQuestion();
+                }
             }
         }
-
-        let treatmentResponses = {};
-        let treatmentCurrentNodeId = null;
-        let serviceDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
         function showTreatmentForm() {
             // Display patient name and date
@@ -2114,12 +2463,12 @@
             summaryHtml += '</div>';
 
             // Organized detailed responses grouped by category
-            summaryHtml += '<div style="margin-top: 40px; border-top: 2px solid #d4cfc4; padding-top: 30px;">';
-            summaryHtml += '<h2 style="color: #2F5D50; margin-bottom: 20px;">Detailed Documentation Reference</h2>';
+            summaryHtml += '<div style="margin-top: 40px; border-top: 2px solid #D4C9BE; padding-top: 30px;">';
+            summaryHtml += '<h2 style="color: #4A8C8C; margin-bottom: 20px;">Detailed Documentation Reference</h2>';
 
             // Assessment Responses Group
-            summaryHtml += '<div style="background: white; border: 2px solid #2F5D50; border-radius: 8px; padding: 20px; margin-bottom: 20px;">';
-            summaryHtml += '<h3 style="color: #2F5D50; margin-bottom: 15px; font-size: 18px;">Initial Assessment Details</h3>';
+            summaryHtml += '<div style="background: white; border: 2px solid #2F5D50; border-radius: 0; padding: 20px; margin-bottom: 20px;">';
+            summaryHtml += '<h3 style="color: #4A8C8C; margin-bottom: 15px; font-size: 18px;">Initial Assessment Details</h3>';
             summaryHtml += '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">';
 
             // Add initial assessment responses in organized cards
@@ -2162,8 +2511,8 @@
                     }
 
                     summaryHtml += `
-                        <div style="background: #FAF6EE; padding: 12px; border-radius: 6px; border-left: 3px solid #2F5D50;">
-                            <div style="font-weight: 600; color: #2F5D50; font-size: 13px; margin-bottom: 5px;">${node.question}</div>
+                        <div style="background: #f0f8ff; padding: 12px; border-radius: 0; border-left: 3px solid #2F5D50;">
+                            <div style="font-weight: 600; color: #4A8C8C; font-size: 13px; margin-bottom: 5px;">${node.question}</div>
                             <div style="color: #000000; font-size: 14px;">${responseText}</div>
                         </div>
                     `;
@@ -2173,8 +2522,8 @@
             summaryHtml += '</div></div>';
 
             // Treatment Documentation Responses Group
-            summaryHtml += '<div style="background: #fff8f3; border: 2px solid #D97652; border-radius: 8px; padding: 20px; margin-bottom: 20px;">';
-            summaryHtml += '<h3 style="color: #D97652; margin-bottom: 15px; font-size: 18px;">Treatment Documentation Details</h3>';
+            summaryHtml += '<div style="background: #fff8f3; border: 2px solid #D97652; border-radius: 0; padding: 20px; margin-bottom: 20px;">';
+            summaryHtml += '<h3 style="color: #4A8C8C; margin-bottom: 15px; font-size: 18px;">Treatment Documentation Details</h3>';
             summaryHtml += '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">';
 
             config.treatmentNodes.forEach(node => {
@@ -2208,8 +2557,8 @@
                     }
 
                     summaryHtml += `
-                        <div style="background: white; padding: 12px; border-radius: 6px; border-left: 3px solid #D97652;">
-                            <div style="font-weight: 600; color: #D97652; font-size: 13px; margin-bottom: 5px;">${node.question}</div>
+                        <div style="background: white; padding: 12px; border-radius: 0; border-left: 3px solid #D97652;">
+                            <div style="font-weight: 600; color: #4A8C8C; font-size: 13px; margin-bottom: 5px;">${node.question}</div>
                             <div style="color: #000000; font-size: 14px;">${responseText}</div>
                         </div>
                     `;
@@ -2219,7 +2568,18 @@
             summaryHtml += '</div></div>';
             summaryHtml += '</div>';
 
+            // Add action buttons at the bottom
+            summaryHtml += `
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #D4C9BE; display: flex; justify-content: space-between; align-items: center;">
+                    <button class="btn btn-secondary" onclick="restart()">New Patient</button>
+                </div>
+            `;
+
             document.getElementById('treatmentQuestionContainer').innerHTML = summaryHtml;
+
+            // Save complete form (with treatment data) to history
+            console.log('Saving complete form to history with treatment data');
+            saveToHistory();
         }
 
         function updateTreatmentButtonText() {
@@ -2239,6 +2599,8 @@
         }
 
         function exportTreatmentDoc(format) {
+            toggleExportMenu('exportDropdown2'); // Close the dropdown
+
             const fullDoc = {
                 patientName: patientName,
                 dateOfService: serviceDate,
@@ -2260,6 +2622,18 @@
                 link.click();
             } else if (format === 'pdf') {
                 window.print();
+            } else if (format === 'copy') {
+                const container = document.getElementById('treatmentQuestionContainer');
+                if (container) {
+                    const textToCopy = extractTextFromHTML(container.innerHTML);
+
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        alert('Full documentation copied to clipboard!');
+                    }).catch(err => {
+                        console.error('Failed to copy:', err);
+                        alert('Failed to copy to clipboard. Please try again.');
+                    });
+                }
             }
         }
 
